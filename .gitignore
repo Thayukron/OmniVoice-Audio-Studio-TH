@@ -1,0 +1,13 @@
+# Environment and downloaded models (several GB)
+venv/
+models/
+__pycache__/
+
+# Personal audio and generated output — keep off GitHub
+voice_refs/
+voices/
+episodes/
+media/
+test_output/
+temp_transcribe.wav
+pronunciations.json

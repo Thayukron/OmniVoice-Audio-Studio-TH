@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniVoice TTS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>OmniVoice สตูดิโอเสียง</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #1b1b1b; color: #e0e0e0; min-height: 100vh; padding: 20px; }
+        body { font-family: 'Inter', 'Noto Sans Thai', sans-serif; background: #1b1b1b; color: #e0e0e0; min-height: 100vh; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
         h1 { font-size: 24px; margin-bottom: 8px; color: #fff; }
         .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
@@ -352,153 +352,160 @@
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
             <img src="data:image/jpeg;base64,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" alt="OmniVoice Audio Studio" style="height:92px;width:auto">
             <div class="btn-row">
-                <button onclick="resetApp()" title="Reset everything — clear all audio, paragraphs and timeline to start fresh" class="btn-danger">🔄 Reset All</button>
-                <button onclick="showPronunciationModal();flashBtn(this)" title="Manage word replacements for better pronunciation">📖 Pronunciations</button>
-                <button onclick="showEpisodesModal();flashBtn(this)" title="Save and load episodes">📁 Episodes</button>
+                <button onclick="resetApp()" title="รีเซ็ตทั้งหมด — ล้างเสียง ย่อหน้า และไทม์ไลน์เพื่อเริ่มใหม่" class="btn-danger">🔄 รีเซ็ตทั้งหมด</button>
+                <button onclick="showPronunciationModal();flashBtn(this)" title="จัดการคำแทนที่เพื่อให้ออกเสียงถูกต้อง">📖 พจนานุกรมการออกเสียง</button>
+                <button onclick="showEpisodesModal();flashBtn(this)" title="บันทึกและเปิดโปรเจกต์">📁 โปรเจกต์</button>
             </div>
         </div>
         
         <!-- Model Configuration -->
         <div class="card">
-            <div class="card-title">Model Configuration</div>
+            <div class="card-title">ตั้งค่าโมเดล</div>
             <div class="grid-2">
                 <div>
-                    <label>Device</label>
+                    <label>อุปกรณ์ประมวลผล</label>
                     <select id="deviceSelect">
-                        <option value="auto">Auto (detect)</option>
-                        <option value="cuda">CUDA (NVIDIA GPU)</option>
+                        <option value="auto">อัตโนมัติ (ตรวจหาเอง)</option>
+                        <option value="cuda">CUDA (การ์ดจอ NVIDIA)</option>
                         <option value="mps">MPS (Apple Silicon)</option>
-                        <option value="cpu">CPU</option>
+                        <option value="cpu">CPU (ช้า)</option>
                     </select>
                 </div>
                 <div>
-                    <label>Dtype</label>
+                    <label>ความละเอียดตัวเลข (Dtype)</label>
                     <select id="dtypeSelect">
-                        <option value="float16">Float16 (recommended)</option>
+                        <option value="float16">Float16 (แนะนำ)</option>
                         <option value="bfloat16">BFloat16</option>
-                        <option value="float32">Float32 (high VRAM)</option>
+                        <option value="float32">Float32 (ใช้หน่วยความจำการ์ดจอมาก)</option>
                     </select>
                 </div>
             </div>
             <div class="btn-row">
-                <button id="loadModelBtn" class="btn-pulse-blue" onclick="loadModel();flashBtn(this)">🚀 Load Model</button>
-                <button class="btn-secondary" onclick="unloadModel();flashBtn(this)">🗑️ Unload</button>
+                <button id="loadModelBtn" class="btn-pulse-blue" onclick="loadModel();flashBtn(this)">🚀 โหลดโมเดล</button>
+                <button class="btn-secondary" onclick="unloadModel();flashBtn(this)">🗑️ ยกเลิกการโหลด</button>
             </div>
             <div id="modelStatus" class="status"></div>
         </div>
         
         <!-- Voice Setup (Clone + Designer) -->
         <div class="card">
-            <div class="card-title">Voice Setup</div>
+            <div class="card-title">ตั้งค่าเสียง</div>
 
             <!-- Section tabs: Clone / Designer -->
             <div class="voice-section-tabs">
-                <div class="voice-section-tab active" id="vsTab-clone" onclick="switchVoiceSection('clone')">🎤 Voice Clone</div>
-                <div class="voice-section-tab" id="vsTab-designer" onclick="switchVoiceSection('designer')">🎨 Voice Designer</div>
+                <div class="voice-section-tab active" id="vsTab-clone" onclick="switchVoiceSection('clone')">🎤 โคลนเสียง</div>
+                <div class="voice-section-tab" id="vsTab-designer" onclick="switchVoiceSection('designer')">🎨 ออกแบบเสียง</div>
             </div>
 
             <!-- ── Voice Clone panel ── -->
             <div class="voice-section-panel active" id="vsPanel-clone">
                 <div class="speaker-tabs" id="speakerTabs">
-                    <div class="speaker-tab active" data-speaker="1" onclick="selectSpeaker(1)">Speaker 1</div>
-                    <div class="speaker-tab" data-speaker="2" onclick="selectSpeaker(2)">Speaker 2</div>
-                    <div class="speaker-tab" data-speaker="3" onclick="selectSpeaker(3)">Speaker 3</div>
-                    <div class="speaker-tab" data-speaker="4" onclick="selectSpeaker(4)">Speaker 4</div>
+                    <div class="speaker-tab active" data-speaker="1" onclick="selectSpeaker(1)">ผู้พูด 1</div>
+                    <div class="speaker-tab" data-speaker="2" onclick="selectSpeaker(2)">ผู้พูด 2</div>
+                    <div class="speaker-tab" data-speaker="3" onclick="selectSpeaker(3)">ผู้พูด 3</div>
+                    <div class="speaker-tab" data-speaker="4" onclick="selectSpeaker(4)">ผู้พูด 4</div>
                 </div>
-                <input type="file" id="refAudio" accept="audio/*" style="display:none" onchange="$('refAudioName').textContent=this.files[0]?.name||'No file chosen'; createVoice()">
+                <input type="file" id="refAudio" accept="audio/*" style="display:none" onchange="$('refAudioName').textContent=this.files[0]?.name||'ยังไม่ได้เลือกไฟล์'; createVoice()">
                 <div class="btn-row" style="margin-bottom:8px;flex-wrap:nowrap;align-items:center">
-                    <button id="chooseAudioBtn" class="btn-secondary btn-pulse-blue" onclick="$('refAudio').click();flashBtn(this)" title="Choose reference audio file">📁 Choose Audio File</button>
-                    <button onclick="createVoice();flashBtn(this)" title="Create a voice clone from the uploaded reference audio">🎤 Create Voice</button>
-                    <button class="btn-danger" onclick="clearVoice()" title="Clear the current speaker's voice">Clear</button>
-                    <span id="refAudioName" style="font-size:12px;color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px">No file chosen</span>
+                    <button id="chooseAudioBtn" class="btn-secondary btn-pulse-blue" onclick="$('refAudio').click();flashBtn(this)" title="เลือกไฟล์เสียงตัวอย่าง (3–10 วินาที)">📁 เลือกไฟล์เสียง</button>
+                    <button onclick="createVoice();flashBtn(this)" title="สร้างเสียงโคลนจากไฟล์เสียงตัวอย่าง">🎤 สร้างเสียง</button>
+                    <button class="btn-danger" onclick="clearVoice()" title="ล้างเสียงของผู้พูดนี้">ล้าง</button>
+                    <span id="refAudioName" style="font-size:12px;color:#888;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px">ยังไม่ได้เลือกไฟล์</span>
                 </div>
                 <div id="voiceStatus" class="status"></div>
+                <div id="refTextBox" style="display:none;margin-top:10px">
+                    <label for="refTextInput" title="โมเดลจะเหมือนเสียงต้นฉบับมากขึ้นเมื่อข้อความนี้ตรงกับที่พูดในไฟล์ทุกคำ">
+                        ข้อความในเสียงตัวอย่าง — ตรวจให้ตรงกับที่พูดจริงทุกคำ แล้วกดบันทึก
+                    </label>
+                    <textarea id="refTextInput" style="min-height:60px;margin-bottom:6px"></textarea>
+                    <button class="btn-secondary btn-small" onclick="saveRefText();flashBtn(this)">💾 บันทึกข้อความ</button>
+                </div>
             </div>
 
             <!-- ── Voice Designer panel ── -->
             <div class="voice-section-panel" id="vsPanel-designer">
                 <div class="speaker-tabs" id="vdSpeakerTabs">
-                    <div class="speaker-tab active" data-speaker="1" onclick="selectVdSpeaker(1)">Speaker 1</div>
-                    <div class="speaker-tab" data-speaker="2" onclick="selectVdSpeaker(2)">Speaker 2</div>
-                    <div class="speaker-tab" data-speaker="3" onclick="selectVdSpeaker(3)">Speaker 3</div>
-                    <div class="speaker-tab" data-speaker="4" onclick="selectVdSpeaker(4)">Speaker 4</div>
+                    <div class="speaker-tab active" data-speaker="1" onclick="selectVdSpeaker(1)">ผู้พูด 1</div>
+                    <div class="speaker-tab" data-speaker="2" onclick="selectVdSpeaker(2)">ผู้พูด 2</div>
+                    <div class="speaker-tab" data-speaker="3" onclick="selectVdSpeaker(3)">ผู้พูด 3</div>
+                    <div class="speaker-tab" data-speaker="4" onclick="selectVdSpeaker(4)">ผู้พูด 4</div>
                 </div>
 
                 <!-- Load saved voice -->
                 <div class="vd-row" style="margin-bottom:10px">
-                    <label>Load Saved</label>
+                    <label>เสียงที่บันทึกไว้</label>
                     <select class="vd-select" id="vdLoadSelect" onchange="loadSavedVoiceDesign()">
-                        <option value="">— choose saved voice —</option>
+                        <option value="">— เลือกเสียงที่บันทึกไว้ —</option>
                     </select>
-                    <button class="btn-secondary btn-small" onclick="openVoiceManager();flashBtn(this)" title="Manage saved voices" style="flex-shrink:0">⚙ Manage</button>
+                    <button class="btn-secondary btn-small" onclick="openVoiceManager();flashBtn(this)" title="จัดการเสียงที่บันทึกไว้" style="flex-shrink:0">⚙ จัดการ</button>
                 </div>
 
                 <!-- Gender -->
                 <div class="vd-row">
-                    <label>Gender</label>
+                    <label>เพศ</label>
                     <select class="vd-select" id="vdGender" onchange="vdUpdate()">
-                        <option value="">— any —</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="">— ไม่ระบุ —</option>
+                        <option value="male">ชาย</option>
+                        <option value="female">หญิง</option>
                     </select>
                 </div>
 
                 <!-- Age -->
                 <div class="vd-row">
-                    <label>Age</label>
+                    <label>อายุ</label>
                     <select class="vd-select" id="vdAge" onchange="vdUpdate()">
-                        <option value="">— any —</option>
-                        <option value="young adult">Young Adult</option>
-                        <option value="middle-aged">Middle-aged</option>
-                        <option value="elderly">Elderly</option>
+                        <option value="">— ไม่ระบุ —</option>
+                        <option value="young adult">วัยหนุ่มสาว</option>
+                        <option value="middle-aged">วัยกลางคน</option>
+                        <option value="elderly">ผู้สูงอายุ</option>
                     </select>
                 </div>
 
                 <!-- Pitch -->
                 <div class="vd-row">
-                    <label>Pitch</label>
+                    <label>ระดับเสียง</label>
                     <select class="vd-select" id="vdPitch" onchange="vdUpdate()">
-                        <option value="">— default —</option>
-                        <option value="very low pitch">Very Low</option>
-                        <option value="low pitch">Low</option>
-                        <option value="moderate pitch">Moderate</option>
-                        <option value="high pitch">High</option>
-                        <option value="very high pitch">Very High</option>
+                        <option value="">— ค่าเริ่มต้น —</option>
+                        <option value="very low pitch">ต่ำมาก</option>
+                        <option value="low pitch">ต่ำ</option>
+                        <option value="moderate pitch">ปานกลาง</option>
+                        <option value="high pitch">สูง</option>
+                        <option value="very high pitch">สูงมาก</option>
                     </select>
                 </div>
 
                 <!-- Style -->
                 <div class="vd-row">
-                    <label>Style</label>
+                    <label>สไตล์</label>
                     <select class="vd-select" id="vdStyle" onchange="vdUpdate()">
-                        <option value="">— normal —</option>
-                        <option value="whisper">Whisper</option>
+                        <option value="">— ปกติ —</option>
+                        <option value="whisper">กระซิบ</option>
                     </select>
                 </div>
 
                 <!-- English Accent -->
                 <div class="vd-row">
-                    <label>English Accent</label>
+                    <label>สำเนียงภาษาอังกฤษ</label>
                     <select class="vd-select" id="vdAccent" onchange="vdUpdate()">
-                        <option value="">— neutral —</option>
-                        <option value="american accent">American</option>
-                        <option value="british accent">British</option>
-                        <option value="australian accent">Australian</option>
-                        <option value="canadian accent">Canadian</option>
-                        <option value="indian accent">Indian</option>
-                        <option value="chinese accent">Chinese</option>
-                        <option value="korean accent">Korean</option>
-                        <option value="japanese accent">Japanese</option>
-                        <option value="portuguese accent">Portuguese</option>
-                        <option value="russian accent">Russian</option>
+                        <option value="">— กลาง ๆ —</option>
+                        <option value="american accent">อเมริกัน</option>
+                        <option value="british accent">อังกฤษ</option>
+                        <option value="australian accent">ออสเตรเลีย</option>
+                        <option value="canadian accent">แคนาดา</option>
+                        <option value="indian accent">อินเดีย</option>
+                        <option value="chinese accent">จีน</option>
+                        <option value="korean accent">เกาหลี</option>
+                        <option value="japanese accent">ญี่ปุ่น</option>
+                        <option value="portuguese accent">โปรตุเกส</option>
+                        <option value="russian accent">รัสเซีย</option>
                     </select>
                 </div>
 
                 <!-- Chinese Dialect -->
                 <div class="vd-row">
-                    <label>Chinese Dialect</label>
+                    <label>สำเนียงจีนท้องถิ่น</label>
                     <select class="vd-select" id="vdDialect" onchange="vdUpdate()">
-                        <option value="">— standard —</option>
+                        <option value="">— มาตรฐาน —</option>
                         <option value="四川话">四川话 (Sichuan)</option>
                         <option value="东北话">东北话 (Northeast)</option>
                         <option value="河南话">河南话 (Henan)</option>
@@ -517,24 +524,24 @@
                 <!-- Voice description sent to model -->
                 <div style="margin-bottom:8px">
                     <label style="margin-bottom:4px;display:flex;justify-content:space-between">
-                        <span>Voice Description (sent to model)</span>
+                        <span>คำอธิบายเสียง (ส่งให้โมเดล — ใช้ภาษาอังกฤษ)</span>
                         <span id="vdStatus" style="color:#f59e0b;font-size:11px"></span>
                     </label>
-                    <textarea class="vd-textarea" id="vdInstruct" placeholder="Auto-generated from controls above, or type your own…" oninput="vdManualEdit()" style="min-height:44px;border-color:#3b82f622"></textarea>
+                    <textarea class="vd-textarea" id="vdInstruct" placeholder="สร้างอัตโนมัติจากตัวเลือกด้านบน หรือพิมพ์เองเป็นภาษาอังกฤษ…" oninput="vdManualEdit()" style="min-height:44px;border-color:#3b82f622"></textarea>
                 </div>
 
                 <!-- Preview + apply -->
                 <div class="btn-row">
-                    <button onclick="applyVoiceDesign();flashBtn(this)" title="Apply this voice design to the current speaker">✅ Apply to Speaker</button>
-                    <button class="btn-secondary" onclick="previewVoiceDesign();flashBtn(this)" title="Generate a short preview sample">▶ Preview</button>
-                    <button class="btn-danger btn-small" onclick="clearVoiceDesign()" title="Clear designer settings">Clear</button>
+                    <button onclick="applyVoiceDesign();flashBtn(this)" title="ใช้เสียงที่ออกแบบนี้กับผู้พูดปัจจุบัน">✅ ใช้กับผู้พูดนี้</button>
+                    <button class="btn-secondary" onclick="previewVoiceDesign();flashBtn(this)" title="สร้างเสียงตัวอย่างสั้น ๆ">▶ ฟังตัวอย่าง</button>
+                    <button class="btn-danger btn-small" onclick="clearVoiceDesign()" title="ล้างการตั้งค่าออกแบบเสียง">ล้าง</button>
                 </div>
                 <audio id="vdPreviewAudio" style="width:100%;margin-top:8px;display:none" controls></audio>
 
                 <!-- Save voice design -->
                 <div class="vd-save-row">
-                    <input type="text" id="vdSaveName" placeholder="Voice name (e.g. 'British Narrator')" style="flex:1;padding:6px 10px;background:#252525;border:1px solid #2a2a2a;border-radius:6px;color:#e0e0e0;font-size:12px;margin:0">
-                    <button class="btn-secondary btn-small" onclick="saveVoiceDesign();flashBtn(this)" title="Save this voice design for reuse">💾 Save Design</button>
+                    <input type="text" id="vdSaveName" placeholder="ชื่อเสียง (เช่น 'ผู้บรรยายชาย')" style="flex:1;padding:6px 10px;background:#252525;border:1px solid #2a2a2a;border-radius:6px;color:#e0e0e0;font-size:12px;margin:0">
+                    <button class="btn-secondary btn-small" onclick="saveVoiceDesign();flashBtn(this)" title="บันทึกเสียงที่ออกแบบไว้ใช้ซ้ำ">💾 บันทึกเสียงนี้</button>
                 </div>
 
                 <div id="vdApplyStatus" class="status" style="margin-top:8px"></div>
@@ -545,53 +552,53 @@
         <div class="card">
             <div class="collapsible-header" onclick="toggleParams()">
                 <span class="toggle-icon" id="paramsToggle">▶</span>
-                <span class="card-title" style="margin:0">Generation Parameters</span>
+                <span class="card-title" style="margin:0">พารามิเตอร์การสร้างเสียง</span>
             </div>
             <div class="collapsible-content" id="paramsContent">
                 <div class="grid-2" style="margin-top:12px">
                     <div class="param-group">
-                        <label>Diffusion Steps <span class="param-value" id="stepsValue">32</span></label>
+                        <label title="จำนวนรอบการสร้าง ยิ่งมากยิ่งละเอียดแต่ช้าลง (แนะนำ 32–64)">จำนวนรอบ (Steps) <span class="param-value" id="stepsValue">32</span></label>
                         <input type="range" id="diffusionSteps" min="4" max="128" step="1" value="32" oninput="updateParam('steps')">
                     </div>
                     <div class="param-group">
-                        <label>Speed <span class="param-value" id="speedValue">1.0</span>×</label>
+                        <label>ความเร็วการพูด <span class="param-value" id="speedValue">1.0</span>×</label>
                         <input type="range" id="speedControl" min="0.5" max="2.0" step="0.05" value="1.0" oninput="updateParam('speed')">
                     </div>
                     <div class="param-group">
-                        <label>Seed <span class="param-value" id="seedValue">42</span></label>
+                        <label title="ค่าสุ่ม — เปลี่ยนค่าเพื่อให้ได้น้ำเสียงต่างออกไป">ค่าสุ่ม (Seed) <span class="param-value" id="seedValue">42</span></label>
                         <input type="range" id="seed" min="0" max="99999" step="1" value="42" oninput="updateParam('seed')">
                     </div>
                     <div class="param-group">
-                        <label title="Classifier-free guidance — higher values improve voice clone similarity (2–4 recommended)">Guidance Scale <span class="param-value" id="guidanceValue">2.0</span></label>
+                        <label title="ค่ายิ่งสูง เสียงโคลนยิ่งเหมือนต้นฉบับ แต่สูงเกินไปเสียงจะแข็ง (แนะนำ 2–3)">ความเหมือนเสียงต้นฉบับ (Guidance) <span class="param-value" id="guidanceValue">2.0</span></label>
                         <input type="range" id="guidanceScale" min="1" max="6" step="0.1" value="2.0" oninput="updateParam('guidance')">
                     </div>
                 </div>
                 <div class="grid-2" style="margin-top:8px">
                     <div class="param-group" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px">
-                        <label style="margin:0;font-size:12px">Denoise Prompt</label>
+                        <label style="margin:0;font-size:12px">ลดเสียงรบกวนจากตัวอย่าง</label>
                         <input type="checkbox" id="denoiseCheck" checked style="width:auto;margin:0;accent-color:#f59e0b">
                     </div>
                     <div class="param-group" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px">
-                        <label style="margin:0;font-size:12px">Pre-process Audio</label>
+                        <label style="margin:0;font-size:12px">ปรับแต่งเสียงตัวอย่างก่อนใช้</label>
                         <input type="checkbox" id="preprocessCheck" checked style="width:auto;margin:0;accent-color:#f59e0b">
                     </div>
                     <div class="param-group" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px">
-                        <label style="margin:0;font-size:12px">Post-process Audio</label>
+                        <label style="margin:0;font-size:12px">ปรับแต่งเสียงผลลัพธ์ (ตัดช่วงเงียบ)</label>
                         <input type="checkbox" id="postprocessCheck" checked style="width:auto;margin:0;accent-color:#f59e0b">
                     </div>
                 </div>
                 <div class="grid-2" style="margin-top:8px">
                     <div class="param-group">
-                        <label>Default Pause (s) <span class="param-value" id="defaultPauseValue">0.3</span></label>
+                        <label>ช่วงเว้นเริ่มต้น (วินาที) <span class="param-value" id="defaultPauseValue">0.3</span></label>
                         <input type="range" id="defaultPause" min="0" max="3" step="0.1" value="0.3" oninput="updateParam('defaultPause')">
                     </div>
                     <div class="param-group">
-                        <label>Split By</label>
+                        <label>แบ่งข้อความตาม</label>
                         <select id="splitBy" style="margin:0">
-                            <option value="paragraph">Paragraph (blank line)</option>
-                            <option value="newline">Newline</option>
-                            <option value="sentence">Sentence</option>
-                            <option value="none">None</option>
+                            <option value="paragraph">ย่อหน้า (บรรทัดว่าง)</option>
+                            <option value="newline">ขึ้นบรรทัดใหม่</option>
+                            <option value="sentence">ประโยค (รองรับภาษาไทย)</option>
+                            <option value="none">ไม่แบ่ง</option>
                         </select>
                     </div>
                 </div>
@@ -600,15 +607,24 @@
         
         <!-- Text Input -->
         <div class="card">
-            <div class="card-title">Text Input</div>
-            <textarea id="inputText" placeholder="Enter text to convert to speech...
+            <div class="card-title">ข้อความที่จะแปลงเป็นเสียง</div>
+            <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">
+                <label for="langSelect" style="margin:0;white-space:nowrap">ภาษาของข้อความ</label>
+                <select id="langSelect" style="margin:0;max-width:260px" title="ระบุภาษาให้โมเดล ช่วยให้ออกเสียงถูกต้องและเป็นธรรมชาติขึ้น">
+                    <option value="th" selected>ไทย (แนะนำสำหรับข้อความไทย)</option>
+                    <option value="en">English</option>
+                    <option value="auto">อัตโนมัติ</option>
+                </select>
+            </div>
+            <textarea id="inputText" placeholder="พิมพ์ข้อความที่ต้องการแปลงเป็นเสียง...
 
-Separate paragraphs with blank lines.
-Use [Speaker 2]: prefix to switch speakers.
-Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duration."></textarea>
+เว้นบรรทัดว่างเพื่อแบ่งย่อหน้า
+ขึ้นต้นด้วย [ผู้พูด 2]: (หรือ [Speaker 2]:) เพื่อเปลี่ยนผู้พูด
+ใส่ [pause] เพื่อเว้นช่วง หรือ [pause 1.5s] เพื่อกำหนดเวลาเอง
+ตัวเลขจะถูกแปลงเป็นคำอ่านภาษาไทยอัตโนมัติ เช่น 25 → ยี่สิบห้า"></textarea>
             <div class="btn-row">
-                <button id="parseBtn" onclick="parseText();flashBtn(this)" title="Parse text into separate paragraphs">📋 Parse Text</button>
-                <button class="btn-danger" onclick="clearParagraphs()" title="Clear all paragraphs and audio">🗑️ Clear All</button>
+                <button id="parseBtn" onclick="parseText();flashBtn(this)" title="แบ่งข้อความออกเป็นย่อหน้า">📋 แบ่งข้อความ</button>
+                <button class="btn-danger" onclick="clearParagraphs()" title="ล้างย่อหน้าและเสียงทั้งหมด">🗑️ ล้างทั้งหมด</button>
             </div>
             <input type="file" id="mediaFileInput" accept="audio/*" style="display:none" onchange="handleMediaUpload(event)">
         </div>
@@ -616,13 +632,13 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         <!-- Paragraphs -->
         <div class="card" id="paragraphsCard" style="display:none">
             <div class="card-title-row">
-                <span class="card-title" style="margin:0">Paragraphs</span>
+                <span class="card-title" style="margin:0">ย่อหน้า</span>
                 <div class="btn-row">
-                    <button id="regenPendingBtn2" onclick="regeneratePending();flashBtn(this)" title="Regenerate all edited or pending paragraphs" style="display:none;background:#ef444422;border-color:#ef4444;color:#ef4444">🔄 Regenerate Pending</button>
-                    <button id="generateAllBtn" class="btn-generate-all" onclick="generateAll();flashBtn(this)" title="Generate audio for all paragraphs">🎵 Generate All</button>
+                    <button id="regenPendingBtn2" onclick="regeneratePending();flashBtn(this)" title="สร้างเสียงใหม่เฉพาะย่อหน้าที่แก้ไขหรือยังไม่ได้สร้าง" style="display:none;background:#ef444422;border-color:#ef4444;color:#ef4444">🔄 สร้างส่วนที่ค้างอยู่</button>
+                    <button id="generateAllBtn" class="btn-generate-all" onclick="generateAll();flashBtn(this)" title="สร้างเสียงทุกย่อหน้า">🎵 สร้างเสียงทั้งหมด</button>
                 </div>
             </div>
-            <div class="progress-label" id="progressLabel">Generation Progress</div>
+            <div class="progress-label" id="progressLabel">ความคืบหน้า</div>
             <div class="progress-bar" id="progressBar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
@@ -633,7 +649,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         <!-- Combined Output (sticky player) -->
         <div class="card" id="outputCard" style="display:none">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                <span class="card-title" style="margin:0">Combined Output</span>
+                <span class="card-title" style="margin:0">เสียงรวม</span>
                 <span id="nowPlayingBadge" style="display:none;font-size:11px;color:#f59e0b"></span>
             </div>
             <audio id="combinedAudio" controls></audio>
@@ -646,19 +662,19 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     <span id="timelineInfo" style="color:#f59e0b;min-width:80px"></span>
                     <div id="timelineControls">
                         <!-- Tool selector -->
-                        <button id="toolSelect" class="tl-btn tl-tool active" onclick="TL.setTool('select');flashBtn(this)" title="Select / Move tool (drag clips, trim edges)">&#9654;</button>
-                        <button id="toolCut"    class="tl-btn tl-tool"        onclick="TL.setTool('cut');flashBtn(this)"    title="Cut tool (click inside a clip to split it at that point)">&#9986;</button>
+                        <button id="toolSelect" class="tl-btn tl-tool active" onclick="TL.setTool('select');flashBtn(this)" title="เครื่องมือเลือก/ย้าย (ลากคลิป ลากขอบเพื่อตัดแต่ง)">&#9654;</button>
+                        <button id="toolCut"    class="tl-btn tl-tool"        onclick="TL.setTool('cut');flashBtn(this)"    title="เครื่องมือตัด (คลิกในคลิปเพื่อแบ่งตรงจุดนั้น)">&#9986;</button>
                         <span style="width:1px;background:#333;height:16px;display:inline-block;margin:0 2px"></span>
                         <!-- Undo / Redo -->
-                        <button class="tl-btn" id="undoBtn" onclick="tlUndo();flashBtn(this)" title="Undo last timeline operation (Ctrl+Z)" disabled>↩</button>
-                        <button class="tl-btn" id="redoBtn" onclick="tlRedo();flashBtn(this)" title="Redo last undone operation (Ctrl+Y)" disabled>↪</button>
+                        <button class="tl-btn" id="undoBtn" onclick="tlUndo();flashBtn(this)" title="เลิกทำ (Ctrl+Z)" disabled>↩</button>
+                        <button class="tl-btn" id="redoBtn" onclick="tlRedo();flashBtn(this)" title="ทำซ้ำ (Ctrl+Y)" disabled>↪</button>
                         <span style="width:1px;background:#333;height:16px;display:inline-block;margin:0 2px"></span>
                         <span style="width:1px;background:#333;height:16px;display:inline-block;margin:0 2px"></span>
-                        <button class="tl-btn" onclick="TL.zoom(-1);flashBtn(this)" title="Zoom out">−</button>
+                        <button class="tl-btn" onclick="TL.zoom(-1);flashBtn(this)" title="ซูมออก">−</button>
                         <span id="zoomLabel">1×</span>
-                        <button class="tl-btn" onclick="TL.zoom(1);flashBtn(this)" title="Zoom in">+</button>
+                        <button class="tl-btn" onclick="TL.zoom(1);flashBtn(this)" title="ซูมเข้า">+</button>
                         <span style="width:1px;background:#333;height:16px;display:inline-block;margin:0 2px"></span>
-                        <button id="rippleAllBtn" class="tl-btn" onclick="TL.toggleRippleAll()" title="All-Track Ripple: when ON, moving a clip pushes all following clips on every track">⇉ Ripple All</button>
+                        <button id="rippleAllBtn" class="tl-btn" onclick="TL.toggleRippleAll()" title="เลื่อนตามกันทุกแทร็ก: เมื่อเปิด การย้ายคลิปจะดันคลิปถัดไปทุกแทร็กตามไปด้วย">⇉ เลื่อนตามกัน</button>
                     </div>
                 </div>
                 <div style="display:flex;align-items:stretch">
@@ -673,15 +689,15 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     <div style="flex-shrink:0;width:44px;background:#0d0d0d;border-right:1px solid #1e1e1e;"></div>
                     <canvas id="timelineRuler" style="flex:1;min-width:0"></canvas>
                 </div>
-                <div id="timelineHint">▶ Move: drag clip · drag edge to trim · Shift+click multi-select · Click clip to seek &nbsp;|&nbsp; ✂ Cut: click inside clip to split at that point</div>
+                <div id="timelineHint">▶ ย้าย: ลากคลิป · ลากขอบเพื่อตัดแต่ง · Shift+คลิก เลือกหลายคลิป · คลิกคลิปเพื่อข้ามไปฟัง &nbsp;|&nbsp; ✂ ตัด: คลิกในคลิปเพื่อแบ่งตรงจุดนั้น</div>
             </div>
             <div class="metrics" id="metricsDisplay"></div>
             <div class="btn-row" style="margin-top:10px">
-                <button id="combineBtn" onclick="combineAudio();flashBtn(this)" title="Combine all paragraph audio into one file">🔗 Combine All</button>
-                <button id="downloadBtn" onclick="downloadCombined();flashBtn(this)" title="Download combined audio as WAV file">💾 Download WAV</button>
-                <button id="saveEpisodeBtn" onclick="saveEpisode();flashBtn(this)" title="Save episode with all settings and audio">💾 Save Episode</button>
-                <button id="regenPendingBtn" onclick="regeneratePending();flashBtn(this)" title="Regenerate all edited or pending paragraphs" style="display:none;background:#ef444422;border-color:#ef4444;color:#ef4444">🔄 Regenerate Pending</button>
-                <button id="generateAllBtn2" class="btn-generate-all" onclick="generateAll();flashBtn(this)" title="Generate audio for all paragraphs">🎵 Generate All</button>
+                <button id="combineBtn" onclick="combineAudio();flashBtn(this)" title="รวมเสียงทุกย่อหน้าเป็นไฟล์เดียว">🔗 รวมเสียงทั้งหมด</button>
+                <button id="downloadBtn" onclick="downloadCombined();flashBtn(this)" title="ดาวน์โหลดเสียงรวมเป็นไฟล์ WAV">💾 ดาวน์โหลด WAV</button>
+                <button id="saveEpisodeBtn" onclick="saveEpisode();flashBtn(this)" title="บันทึกโปรเจกต์พร้อมการตั้งค่าและเสียงทั้งหมด">💾 บันทึกโปรเจกต์</button>
+                <button id="regenPendingBtn" onclick="regeneratePending();flashBtn(this)" title="สร้างเสียงใหม่เฉพาะย่อหน้าที่แก้ไขหรือยังไม่ได้สร้าง" style="display:none;background:#ef444422;border-color:#ef4444;color:#ef4444">🔄 สร้างส่วนที่ค้างอยู่</button>
+                <button id="generateAllBtn2" class="btn-generate-all" onclick="generateAll();flashBtn(this)" title="สร้างเสียงทุกย่อหน้า">🎵 สร้างเสียงทั้งหมด</button>
             </div>
         </div>
     </div><!-- end .container -->
@@ -690,11 +706,11 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
     <div id="voiceManagerModal" style="position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center">
         <div style="background:#111111;border:1px solid #2a2a2a;border-radius:12px;padding:20px;width:480px;max-width:95vw;max-height:80vh;overflow-y:auto">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-                <span style="font-size:14px;font-weight:600;color:#f59e0b">Saved Voice Designs</span>
-                <button class="btn-secondary btn-small" onclick="closeVoiceManager();flashBtn(this)">✕ Close</button>
+                <span style="font-size:14px;font-weight:600;color:#f59e0b">เสียงที่ออกแบบและบันทึกไว้</span>
+                <button class="btn-secondary btn-small" onclick="closeVoiceManager();flashBtn(this)">✕ ปิด</button>
             </div>
             <div id="voiceManagerList"></div>
-            <div id="voiceManagerEmpty" style="color:#555;font-size:13px;text-align:center;padding:20px">No saved voice designs yet.</div>
+            <div id="voiceManagerEmpty" style="color:#555;font-size:13px;text-align:center;padding:20px">ยังไม่มีเสียงที่บันทึกไว้</div>
         </div>
     </div>
 
@@ -707,23 +723,23 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
     <!-- Episodes Modal -->
     <div class="modal-overlay" id="episodesModal">
         <div class="modal">
-            <h3>📁 Episodes</h3>
+            <h3>📁 โปรเจกต์</h3>
             <div class="tab-bar">
-                <button class="tab-btn active" data-tab="load" onclick="switchTab('load');flashBtn(this)">Load</button>
-                <button class="tab-btn" data-tab="save" onclick="switchTab('save');flashBtn(this)">Save</button>
+                <button class="tab-btn active" data-tab="load" onclick="switchTab('load');flashBtn(this)">เปิด</button>
+                <button class="tab-btn" data-tab="save" onclick="switchTab('save');flashBtn(this)">บันทึก</button>
             </div>
             <div class="tab-content active" id="tab-load">
                 <div class="episodes-list" id="episodesList"></div>
             </div>
             <div class="tab-content" id="tab-save">
-                <label>Episode Name</label>
-                <input type="text" id="episodeName" placeholder="My Episode">
+                <label>ชื่อโปรเจกต์</label>
+                <input type="text" id="episodeName" placeholder="โปรเจกต์ของฉัน">
                 <div class="btn-row">
-                    <button onclick="saveCurrentEpisode();flashBtn(this)">💾 Save</button>
+                    <button onclick="saveCurrentEpisode();flashBtn(this)">💾 บันทึก</button>
                 </div>
             </div>
             <div class="modal-actions">
-                <button class="btn-secondary" onclick="hideModal('episodesModal');flashBtn(this)">Close</button>
+                <button class="btn-secondary" onclick="hideModal('episodesModal');flashBtn(this)">ปิด</button>
             </div>
         </div>
     </div>
@@ -731,13 +747,13 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
     <!-- Pronunciation Modal -->
     <div class="modal-overlay" id="pronunciationModal">
         <div class="modal">
-            <h3>📖 Pronunciations</h3>
-            <p style="font-size:12px;color:#888;margin-bottom:12px">Replace words before generation</p>
+            <h3>📖 พจนานุกรมการออกเสียง</h3>
+            <p style="font-size:12px;color:#888;margin-bottom:12px">แทนที่คำก่อนสร้างเสียง เช่น คำย่อ ชื่อเฉพาะ หรือคำที่อ่านผิด</p>
             <div class="pronunciation-entries" id="pronunciationEntries"></div>
-            <button class="add-entry-btn" onclick="addPronunciationEntry();flashBtn(this)">+ Add Entry</button>
+            <button class="add-entry-btn" onclick="addPronunciationEntry();flashBtn(this)">+ เพิ่มคำ</button>
             <div class="modal-actions">
-                <button onclick="savePronunciations();flashBtn(this)">💾 Save</button>
-                <button class="btn-secondary" onclick="hideModal('pronunciationModal');flashBtn(this)">Cancel</button>
+                <button onclick="savePronunciations();flashBtn(this)">💾 บันทึก</button>
+                <button class="btn-secondary" onclick="hideModal('pronunciationModal');flashBtn(this)">ยกเลิก</button>
             </div>
         </div>
     </div>
@@ -762,10 +778,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         // Reusable confirm modal — replaces browser confirm() dialogs
         function showConfirmModal(opts) {
             $('confirmModalIcon').textContent  = opts.icon  || '⚠️';
-            $('confirmModalTitle').textContent = opts.title || 'Are you sure?';
+            $('confirmModalTitle').textContent = opts.title || 'แน่ใจหรือไม่?';
             $('confirmModalMsg').textContent   = opts.msg   || '';
             const okBtn = $('confirmModalOk');
-            okBtn.textContent = opts.okLabel || 'Confirm';
+            okBtn.textContent = opts.okLabel || 'ยืนยัน';
             okBtn.className   = opts.okClass || 'btn-danger';
             const newOk = okBtn.cloneNode(true);
             okBtn.parentNode.replaceChild(newOk, okBtn);
@@ -781,6 +797,40 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             });
         });
         const SAMPLE_RATE = 24000;
+
+        // Options sent with every /generate_paragraph request
+        function genOptions() {
+            return {
+                language:           $('langSelect')?.value || 'th',
+                denoise:            $('denoiseCheck')?.checked !== false,
+                preprocess_prompt:  $('preprocessCheck')?.checked !== false,
+                postprocess_output: $('postprocessCheck')?.checked !== false,
+            };
+        }
+
+        function previewText() {
+            return ($('langSelect')?.value === 'en')
+                ? 'Hello! This is a preview of my voice design. How does this sound to you?'
+                : 'สวัสดีครับ นี่คือเสียงตัวอย่างที่ออกแบบไว้ ฟังแล้วเป็นอย่างไรบ้างครับ';
+        }
+
+        // Split into sentences. Thai has no full stops: sentences are separated by spaces,
+        // so short space-separated phrases are merged back into chunks of ~maxLen chars.
+        function splitSentences(text, maxLen = 160) {
+            const pieces = text.split(/(?<=[.!?…。])\s+|(?<=[฀-๿])\s+(?=[฀-๿])|\n+/)
+                .map(t => t.trim()).filter(Boolean);
+            const out = [];
+            for (const piece of pieces) {
+                const last = out[out.length - 1];
+                if (last !== undefined && !/[.!?…。]$/.test(last) && (last + ' ' + piece).length <= maxLen) {
+                    out[out.length - 1] = last + ' ' + piece;
+                } else {
+                    out.push(piece);
+                }
+            }
+            return out.length ? out : [text];
+        }
+        const STATUS_TH = { pending: 'รอสร้าง', generating: 'กำลังสร้าง', regenerating: 'กำลังสร้างใหม่', done: 'เสร็จแล้ว', error: 'ผิดพลาด', edited: 'แก้ไขแล้ว' };
         
         let currentSpeaker = 1;
         let voiceReady = {1: false, 2: false, 3: false, 4: false};
@@ -817,7 +867,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 const ov = document.createElement('div');
                 ov.id = 'tlLockOverlay';
                 ov.style.cssText = 'position:absolute;inset:0;z-index:100;cursor:not-allowed;background:rgba(0,0,0,0.25);border-radius:6px;display:flex;align-items:center;justify-content:center;';
-                ov.innerHTML = '<span style="color:#f59e0b;font-size:13px;font-weight:600;background:#0d0d0dcc;padding:6px 14px;border-radius:20px;">⏳ Generating…</span>';
+                ov.innerHTML = '<span style="color:#f59e0b;font-size:13px;font-weight:600;background:#0d0d0dcc;padding:6px 14px;border-radius:20px;">⏳ กำลังสร้างเสียง…</span>';
                 wrap.style.position = 'relative';
                 wrap.appendChild(ov);
             }
@@ -947,16 +997,16 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         async function applyVoiceDesign() {
             const instruct = $('vdInstruct').value.trim();
             if (!instruct) {
-                showStatus($('vdApplyStatus'), 'error', 'Build or type a voice description first');
+                showStatus($('vdApplyStatus'), 'error', 'กรุณาเลือกหรือพิมพ์คำอธิบายเสียงก่อน');
                 return;
             }
             // Block if a real voice clone is loaded for this speaker
             if (voiceReady[currentVdSpeaker]) {
                 showStatus($('vdApplyStatus'), 'error',
-                    '✗ Speaker ' + currentVdSpeaker + ' already has a voice clone loaded. Clear it first to use Voice Designer.');
+                    '✗ ผู้พูด ' + currentVdSpeaker + ' มีเสียงโคลนอยู่แล้ว กรุณาล้างก่อนจึงจะใช้การออกแบบเสียงได้');
                 return;
             }
-            if (isGenerating) { showStatus($('vdApplyStatus'), 'error', 'Generation in progress'); return; }
+            if (isGenerating) { showStatus($('vdApplyStatus'), 'error', 'กำลังสร้างเสียงอยู่ กรุณารอสักครู่'); return; }
 
             // Clear any stale cached voice design audio so preview always uses fresh instruct
             await fetch('/clear_vd_refs', {
@@ -966,7 +1016,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             });
 
             // Generate preview first so user can hear it before it's applied
-            showStatus($('vdApplyStatus'), 'info', '⏳ Generating preview…');
+            showStatus($('vdApplyStatus'), 'info', '⏳ กำลังสร้างเสียงตัวอย่าง…');
             const audio = $('vdPreviewAudio');
             audio.style.display = 'none';
             try {
@@ -974,11 +1024,12 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
-                        text: 'Hello! This is a preview of my voice design. How does this sound to you?',
+                        text: previewText(),
                         speaker_id: currentVdSpeaker,
                         diffusion_steps: parseInt($('diffusionSteps').value),
                         guidance_scale: parseFloat($('guidanceScale')?.value || '2.0'),
                         speed: parseFloat($('speedControl').value),
+                        ...genOptions(),
                         seed: parseInt($('seed').value),
                         instruct,
                         vd_ref_audio_id: 'vd_' + currentVdSpeaker,
@@ -998,9 +1049,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     updateVoiceStatus();
                     vdRefreshApplyStatus();
                     showStatus($('vdApplyStatus'), 'success',
-                        '✓ Voice design applied to Speaker ' + currentVdSpeaker);
+                        '✓ ใช้เสียงที่ออกแบบกับผู้พูด ' + currentVdSpeaker);
                 } else {
-                    showStatus($('vdApplyStatus'), 'error', '✗ Preview failed: ' + data.error);
+                    showStatus($('vdApplyStatus'), 'error', '✗ สร้างตัวอย่างไม่สำเร็จ: ' + data.error);
                 }
             } catch(e) {
                 showStatus($('vdApplyStatus'), 'error', '✗ ' + e.message);
@@ -1015,19 +1066,19 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             // (backend tracks clone, we can't easily check — leave voiceReady alone)
             vdLoadSpeakerFields(currentVdSpeaker);
             $('vdInstruct').value = '';
-            showStatus($('vdApplyStatus'), 'info', 'Designer cleared for Speaker ' + currentVdSpeaker);
+            showStatus($('vdApplyStatus'), 'info', 'ล้างการออกแบบเสียงของผู้พูด ' + currentVdSpeaker);
         }
 
         function vdRefreshApplyStatus() {
             const applied = vdApplied[currentVdSpeaker];
-            $('vdStatus').textContent = applied ? '✓ Applied to Spk ' + currentVdSpeaker : '';
+            $('vdStatus').textContent = applied ? '✓ ใช้กับผู้พูด ' + currentVdSpeaker : '';
         }
 
         async function previewVoiceDesign() {
             const instruct = $('vdInstruct').value.trim();
-            if (!instruct) { showStatus($('vdApplyStatus'), 'error', 'Build a voice description first'); return; }
-            if (isGenerating) { showStatus($('vdApplyStatus'), 'error', 'Generation in progress'); return; }
-            showStatus($('vdApplyStatus'), 'info', '⏳ Generating preview…');
+            if (!instruct) { showStatus($('vdApplyStatus'), 'error', 'กรุณาสร้างคำอธิบายเสียงก่อน'); return; }
+            if (isGenerating) { showStatus($('vdApplyStatus'), 'error', 'กำลังสร้างเสียงอยู่ กรุณารอสักครู่'); return; }
+            showStatus($('vdApplyStatus'), 'info', '⏳ กำลังสร้างเสียงตัวอย่าง…');
             const audio = $('vdPreviewAudio');
             audio.style.display = 'none';
             try {
@@ -1035,11 +1086,12 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     method: 'POST',
                     headers: {'Content-Type':'application/json'},
                     body: JSON.stringify({
-                        text: 'Hello! This is a preview of my voice design. How does this sound to you?',
+                        text: previewText(),
                         speaker_id: currentVdSpeaker,
                         diffusion_steps: parseInt($('diffusionSteps').value),
                         guidance_scale: parseFloat($('guidanceScale')?.value || '2.0'),
                         speed: parseFloat($('speedControl').value),
+                        ...genOptions(),
                         seed: parseInt($('seed').value),
                         instruct,
                     })
@@ -1053,7 +1105,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     audio.style.display = 'block';
                     audio.load();
                     audio.play().catch(() => {}); // autoplay may be blocked — player still shows
-                    showStatus($('vdApplyStatus'), 'success', '✓ Preview ready');
+                    showStatus($('vdApplyStatus'), 'success', '✓ เสียงตัวอย่างพร้อมแล้ว');
                 } else {
                     showStatus($('vdApplyStatus'), 'error', '✗ ' + data.error);
                 }
@@ -1065,9 +1117,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         // ── Save / load / manage voice designs ───────────────────────
         function saveVoiceDesign() {
             const name = $('vdSaveName').value.trim();
-            if (!name) { showStatus($('vdApplyStatus'), 'error', 'Enter a name first'); return; }
+            if (!name) { showStatus($('vdApplyStatus'), 'error', 'กรุณาตั้งชื่อก่อน'); return; }
             const instruct = $('vdInstruct').value.trim();
-            if (!instruct) { showStatus($('vdApplyStatus'), 'error', 'Nothing to save — build a design first'); return; }
+            if (!instruct) { showStatus($('vdApplyStatus'), 'error', 'ยังไม่มีอะไรให้บันทึก — กรุณาออกแบบเสียงก่อน'); return; }
             const list = vdLoadStorage();
             const existing = list.findIndex(v => v.name.toLowerCase() === name.toLowerCase());
             const entry = {
@@ -1082,13 +1134,13 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             vdSaveStorage(list);
             vdRefreshLoadDropdown();
             $('vdSaveName').value = '';
-            showStatus($('vdApplyStatus'), 'success', '✓ Saved "' + name + '"');
+            showStatus($('vdApplyStatus'), 'success', '✓ บันทึก "' + name + '"');
         }
 
         function vdRefreshLoadDropdown() {
             const sel = $('vdLoadSelect');
             const cur = sel.value;
-            sel.innerHTML = '<option value="">— choose saved voice —</option>';
+            sel.innerHTML = '<option value="">— เลือกเสียงที่บันทึกไว้ —</option>';
             vdLoadStorage().forEach(v => {
                 const opt = document.createElement('option');
                 opt.value = v.id;
@@ -1110,7 +1162,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 vdLoadSpeakerFields(currentVdSpeaker);
             }
             $('vdInstruct').value = v.instruct;
-            showStatus($('vdApplyStatus'), 'info', 'Loaded "' + v.name + '" — click Apply to use');
+            showStatus($('vdApplyStatus'), 'info', 'โหลด "' + v.name + '" แล้ว — กด "ใช้กับผู้พูดนี้" เพื่อใช้งาน');
         }
 
         function openVoiceManager() {
@@ -1135,10 +1187,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     <div class="svi-name" id="svi-name-${v.id}">${v.name}</div>
                     <div style="font-size:10px;color:#555;flex-shrink:0">${new Date(v.saved).toLocaleDateString()}</div>
                     <div class="svi-btns">
-                        <button class="btn-secondary btn-small" onclick="vdManagerLoad(${v.id});flashBtn(this)" title="Load into designer">Load</button>
-                        <button class="btn-secondary btn-small" onclick="vdManagerRename(${v.id});flashBtn(this)" title="Rename">✏</button>
-                        <button class="btn-secondary btn-small" onclick="vdManagerUpdate(${v.id});flashBtn(this)" title="Overwrite with current design">↻</button>
-                        <button class="btn-danger btn-small" onclick="vdManagerDelete(${v.id})" title="Delete">✕</button>
+                        <button class="btn-secondary btn-small" onclick="vdManagerLoad(${v.id});flashBtn(this)" title="โหลดเข้าตัวออกแบบเสียง">โหลด</button>
+                        <button class="btn-secondary btn-small" onclick="vdManagerRename(${v.id});flashBtn(this)" title="เปลี่ยนชื่อ">✏</button>
+                        <button class="btn-secondary btn-small" onclick="vdManagerUpdate(${v.id});flashBtn(this)" title="บันทึกทับด้วยการออกแบบปัจจุบัน">↻</button>
+                        <button class="btn-danger btn-small" onclick="vdManagerDelete(${v.id})" title="ลบ">✕</button>
                     </div>`;
                 container.appendChild(item);
             });
@@ -1149,7 +1201,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             if (!v) return;
             if (v.settings) { vdSpeakerSettings[currentVdSpeaker] = {...v.settings}; vdLoadSpeakerFields(currentVdSpeaker); }
             $('vdInstruct').value = v.instruct;
-            showStatus($('vdApplyStatus'), 'info', 'Loaded "' + v.name + '"');
+            showStatus($('vdApplyStatus'), 'info', 'โหลด "' + v.name + '"');
             closeVoiceManager();
         }
 
@@ -1157,7 +1209,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const list = vdLoadStorage();
             const v = list.find(x => x.id === id);
             if (!v) return;
-            const newName = prompt('Rename voice design:', v.name);
+            const newName = prompt('เปลี่ยนชื่อเสียง:', v.name);
             if (!newName || !newName.trim()) return;
             v.name = newName.trim();
             v.saved = new Date().toISOString();
@@ -1168,7 +1220,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
 
         function vdManagerUpdate(id) {
             const instruct = $('vdInstruct').value.trim();
-            if (!instruct) { alert('Build a voice design first to overwrite with'); return; }
+            if (!instruct) { alert('กรุณาออกแบบเสียงก่อนจึงจะบันทึกทับได้'); return; }
             const list = vdLoadStorage();
             const v = list.find(x => x.id === id);
             if (!v) return;
@@ -1177,7 +1229,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             v.saved = new Date().toISOString();
             vdSaveStorage(list);
             renderVoiceManager();
-            showStatus($('vdApplyStatus'), 'success', '✓ Updated "' + v.name + '"');
+            showStatus($('vdApplyStatus'), 'success', '✓ อัปเดต "' + v.name + '"');
         }
 
         function vdManagerDelete(id) {
@@ -1186,9 +1238,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             if (!v) return;
             showConfirmModal({
                 icon: '🗑️',
-                title: 'Delete Voice Design?',
-                msg: 'Delete "' + v.name + '"? This cannot be undone.',
-                okLabel: 'Delete',
+                title: 'ลบเสียงที่ออกแบบไว้?',
+                msg: 'ลบ "' + v.name + '" ใช่ไหม? ไม่สามารถย้อนกลับได้',
+                okLabel: 'ลบ',
                 okClass: 'btn-danger',
                 onOk: () => {
                     vdSaveStorage(list.filter(x => x.id !== id));
@@ -1203,6 +1255,36 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             document.querySelectorAll('#speakerTabs .speaker-tab').forEach(t => {
                 t.classList.toggle('active', parseInt(t.dataset.speaker) === id);
             });
+            showRefText();
+        }
+
+        // Whisper transcript of each speaker's reference clip (editable)
+        let refTexts = {1: '', 2: '', 3: '', 4: ''};
+
+        function showRefText() {
+            const ready = voiceReady[currentSpeaker];
+            $('refTextBox').style.display = ready ? 'block' : 'none';
+            $('refTextInput').value = refTexts[currentSpeaker] || '';
+        }
+
+        async function saveRefText() {
+            const text = $('refTextInput').value.trim();
+            try {
+                const res = await fetch('/update_ref_text', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({speaker_id: currentSpeaker, ref_text: text})
+                });
+                const data = await res.json();
+                if (data.success) {
+                    refTexts[currentSpeaker] = text;
+                    showStatus($('voiceStatus'), 'success', '✓ บันทึกข้อความของผู้พูด ' + currentSpeaker + ' แล้ว');
+                } else {
+                    showStatus($('voiceStatus'), 'error', '✗ ' + data.error);
+                }
+            } catch (e) {
+                showStatus($('voiceStatus'), 'error', '✗ ' + e.message);
+            }
         }
 
         function updateVoiceStatus() {
@@ -1236,7 +1318,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         async function loadModel() {
             const btn = $('loadModelBtn');
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span>Loading...';
+            btn.innerHTML = '<span class="spinner"></span>กำลังโหลด...';
             
             try {
                 const res = await fetch('/load_model', {
@@ -1249,7 +1331,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 });
                 const data = await res.json();
                 showStatus($('modelStatus'), data.success ? 'success' : 'error', 
-                    data.success ? '✓ OmniVoice loaded' : '✗ ' + (data.error || 'Failed'));
+                    data.success ? '✓ โหลด OmniVoice แล้ว' : '✗ ' + (data.error || 'Failed'));
                 if (data.success) {
                     setActiveOn($('loadModelBtn'));
                     $('loadModelBtn').classList.remove('btn-pulse-blue');
@@ -1260,7 +1342,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             }
             
             btn.disabled = false;
-            btn.innerHTML = '🚀 Load Model';
+            btn.innerHTML = '🚀 โหลดโมเดล';
         }
         
         async function unloadModel() {
@@ -1269,19 +1351,19 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             updateVoiceStatus();
             clearActiveOn($('loadModelBtn'));
             $('loadModelBtn').classList.add('btn-pulse-blue');
-            showStatus($('modelStatus'), 'info', 'Model unloaded');
+            showStatus($('modelStatus'), 'info', 'ยกเลิกการโหลดโมเดลแล้ว');
         }
         
 
         async function createVoice() {
             const file = $('refAudio').files[0];
             if (!file) {
-                showStatus($('voiceStatus'), 'error', 'Select audio file');
+                showStatus($('voiceStatus'), 'error', 'กรุณาเลือกไฟล์เสียง');
                 return;
             }
 
             // Check duration before uploading — decode in browser to verify length
-            showStatus($('voiceStatus'), 'info', 'Checking audio...');
+            showStatus($('voiceStatus'), 'info', 'กำลังตรวจสอบไฟล์เสียง...');
             try {
                 const arrayBuf = await file.arrayBuffer();
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1289,12 +1371,12 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 audioCtx.close();
                 const dur = decoded.duration;
                 if (dur < 1) {
-                    showStatus($('voiceStatus'), 'error', '✗ Audio too short — need at least 1 second');
+                    showStatus($('voiceStatus'), 'error', '✗ เสียงสั้นเกินไป — ต้องยาวอย่างน้อย 1 วินาที');
                     return;
                 }
-                if (dur > 10) {
+                if (dur > 15) {
                     showStatus($('voiceStatus'), 'info',
-                        '⚠ Audio is ' + dur.toFixed(1) + 's — will be trimmed to 10s on the server');
+                        '⚠ เสียงยาว ' + dur.toFixed(1) + ' วินาที — ระบบจะตัดให้เหลือไม่เกิน 15 วินาที');
                 }
             } catch (e) {
                 // Can't decode in browser — proceed and let server handle it
@@ -1303,8 +1385,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const formData = new FormData();
             formData.append('reference_audio', file);
             formData.append('speaker_id', currentSpeaker);
+            formData.append('language', $('langSelect')?.value || 'th');
 
-            showStatus($('voiceStatus'), 'info', 'Creating voice...');
+            showStatus($('voiceStatus'), 'info', 'กำลังสร้างเสียงและถอดข้อความจากเสียงตัวอย่าง...');
             
             try {
                 const res = await fetch('/create_voice', {method: 'POST', body: formData});
@@ -1320,8 +1403,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     updateVoiceStatus();
                     flashBtn(document.querySelector('#vsPanel-clone .btn-row button'));
                     showStatus($('voiceStatus'), 'success', 
-                        '✓ Speaker ' + currentSpeaker + ' ready (' + data.duration.toFixed(1) + 's' +
+                        '✓ ผู้พูด ' + currentSpeaker + ' พร้อมใช้งาน (' + data.duration.toFixed(1) + ' วินาที' +
                         (data.duration < 10 && data.duration > 0 ? '' : '') + ')');
+                    refTexts[currentSpeaker] = data.ref_text || '';
+                    showRefText();
                 } else {
                     showStatus($('voiceStatus'), 'error', '✗ ' + data.error);
                 }
@@ -1338,10 +1423,12 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             });
             voiceReady[currentSpeaker] = false;
             voiceFilenames[currentSpeaker] = '';
+            refTexts[currentSpeaker] = '';
+            showRefText();
             updateVoiceStatus();
             $('refAudio').value = '';
-            if ($('refAudioName')) $('refAudioName').textContent = 'No file chosen';
-            showStatus($('voiceStatus'), 'info', 'Speaker ' + currentSpeaker + ' cleared');
+            if ($('refAudioName')) $('refAudioName').textContent = 'ยังไม่ได้เลือกไฟล์';
+            showStatus($('voiceStatus'), 'info', 'ล้างเสียงผู้พูด ' + currentSpeaker + ' แล้ว');
         }
         
         async function transcribeAudio() {
@@ -1351,7 +1438,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const formData = new FormData();
             formData.append('audio', file);
             
-            showStatus($('voiceStatus'), 'info', 'Transcribing...');
+            showStatus($('voiceStatus'), 'info', 'กำลังถอดข้อความจากเสียง...');
             
             try {
                 const res = await fetch('/transcribe', {method: 'POST', body: formData});
@@ -1372,8 +1459,8 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const hasAudio = paragraphs.some(p => p.audio);
             btn.disabled = hasAudio;
             btn.title = hasAudio
-                ? '⚠ Cannot parse new text after generation — use 🔄 Reset All to start fresh'
-                : 'Parse text into separate paragraphs';
+                ? '⚠ แบ่งข้อความใหม่ไม่ได้หลังสร้างเสียงแล้ว — กด 🔄 รีเซ็ตทั้งหมด เพื่อเริ่มใหม่'
+                : 'แบ่งข้อความออกเป็นย่อหน้า';
             btn.style.opacity = hasAudio ? '0.45' : '';
             btn.style.cursor  = hasAudio ? 'not-allowed' : '';
         }
@@ -1382,7 +1469,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const text = $('inputText').value.trim();
             if (!text) return;
             if (paragraphs.some(p => p.audio)) {
-                showStatus($('genStatus'), 'error', '✗ Reset the app first before parsing new text (use 🔄 Reset All)');
+                showStatus($('genStatus'), 'error', '✗ กรุณารีเซ็ตก่อนแบ่งข้อความใหม่ (กด 🔄 รีเซ็ตทั้งหมด)');
                 return;
             }
             
@@ -1394,7 +1481,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             } else if (splitBy === 'newline') {
                 chunks = text.split('\n').filter(c => c.trim());
             } else if (splitBy === 'sentence') {
-                chunks = text.match(/[^.!?]+[.!?]+/g) || [text];
+                chunks = splitSentences(text);
             } else {
                 chunks = [text];
             }
@@ -1407,7 +1494,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 let speakerId = 1;
                 let cleanChunk = chunk.trim();
                 // Check for speaker prefix
-                const speakerMatch = cleanChunk.match(/^\[Speaker\s*(\d)\]:?\s*/i);
+                const speakerMatch = cleanChunk.match(/^\[(?:Speaker|ผู้พูด)\s*(\d)\]:?\s*/i);
                 if (speakerMatch) {
                     speakerId = parseInt(speakerMatch[1]);
                     cleanChunk = cleanChunk.replace(speakerMatch[0], '');
@@ -1459,8 +1546,8 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 // Insert row before every paragraph including first
                 const insertRow = document.createElement('div');
                 insertRow.className = 'insert-row always-visible';
-                insertRow.innerHTML = '<button class="insert-btn" onclick="insertParagraph(' + i + ');flashBtn(this)" title="Insert new text paragraph here">+ Text</button>' +
-                    '<button class="insert-btn" onclick="insertMedia(' + i + ');flashBtn(this)" title="Insert audio file here">+ Media</button>';
+                insertRow.innerHTML = '<button class="insert-btn" onclick="insertParagraph(' + i + ');flashBtn(this)" title="แทรกย่อหน้าข้อความตรงนี้">+ ข้อความ</button>' +
+                    '<button class="insert-btn" onclick="insertMedia(' + i + ');flashBtn(this)" title="แทรกไฟล์เสียงตรงนี้">+ ไฟล์เสียง</button>';
                 container.appendChild(insertRow);
                 
                 const div = document.createElement('div');
@@ -1470,35 +1557,35 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 
                 if (p.type === 'media') {
                     div.innerHTML = '<div class="paragraph-header">' +
-                        '<span class="paragraph-label"><span class="drag-handle" title="Drag to reorder">⋮⋮</span> Media ' + (i + 1) + '</span>' +
-                        '<span class="paragraph-status media">Media</span></div>' +
-                        '<div class="media-filename">🎵 ' + (p.media_filename || 'Audio file') + '</div>' +
+                        '<span class="paragraph-label"><span class="drag-handle" title="ลากเพื่อจัดลำดับ">⋮⋮</span> ไฟล์เสียง ' + (i + 1) + '</span>' +
+                        '<span class="paragraph-status media">ไฟล์เสียง</span></div>' +
+                        '<div class="media-filename">🎵 ' + (p.media_filename || 'ไฟล์เสียง') + '</div>' +
                         '<div class="paragraph-actions">' +
                         '<div class="paragraph-audio">' + (p.audio ? '<audio controls src="' + createWavUrl(p.audio) + '"></audio>' : '') + '</div>' +
-                        '<button class="btn-small btn-danger" onclick="removeParagraph(' + i + ')" title="Remove this media">✕</button></div>' +
+                        '<button class="btn-small btn-danger" onclick="removeParagraph(' + i + ')" title="ลบไฟล์เสียงนี้">✕</button></div>' +
                         '<div class="pause-controls">' +
-                        (i === 0 ? '<div class="pause-control">Before: <input type="number" value="' + p.pauseBefore + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'before\',this.value)" title="Silence before this media">s</div>' : '') +
-                        (i < paragraphs.length - 1 ? '<div class="pause-control">After: <input type="number" value="' + p.pauseAfter + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'after\',this.value)" title="Silence after this media">s</div>' : '') +
+                        (i === 0 ? '<div class="pause-control">เว้นก่อน: <input type="number" value="' + p.pauseBefore + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'before\',this.value)" title="ช่วงเงียบก่อนไฟล์เสียงนี้">s</div>' : '') +
+                        (i < paragraphs.length - 1 ? '<div class="pause-control">เว้นหลัง: <input type="number" value="' + p.pauseAfter + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'after\',this.value)" title="ช่วงเงียบหลังไฟล์เสียงนี้">s</div>' : '') +
                         '</div>';
                 } else {
                     const statusText = p.edited ? 'edited' : p.status;
                     const editedClass = p.edited ? ' edited' : '';
                     div.className = 'paragraph-section ' + p.status + (p.edited ? ' edited' : '');
                     div.innerHTML = '<div class="paragraph-header">' +
-                        '<span class="paragraph-label"><span class="drag-handle" title="Drag to reorder">⋮⋮</span> Paragraph ' + (i + 1) + ' [Speaker ' + p.speaker_id + ']</span>' +
-                        '<span class="paragraph-status ' + statusText + '">' + statusText + '</span></div>' +
+                        '<span class="paragraph-label"><span class="drag-handle" title="ลากเพื่อจัดลำดับ">⋮⋮</span> ย่อหน้า ' + (i + 1) + ' [ผู้พูด ' + p.speaker_id + ']</span>' +
+                        '<span class="paragraph-status ' + statusText + '">' + (STATUS_TH[statusText] || statusText) + '</span></div>' +
                         '<textarea class="paragraph-textarea' + editedClass + '" oninput="markEdited(' + i + ',this.value,this)">' + escapeHtml(p.text) + '</textarea>' +
                         '<div class="paragraph-actions">' +
                         '<div class="paragraph-audio">' + (p.audio ? '<audio controls src="' + createWavUrl(p.audio) + '"></audio>' : '') + '</div>' +
-                        '<select class="btn-small" style="width:80px" onchange="updateSpeaker(' + i + ',this.value)" title="Select speaker voice">' +
-                        [1,2,3,4].map(s => '<option value="' + s + '"' + (p.speaker_id===s?' selected':'') + '>Spk ' + s + '</option>').join('') + '</select>' +
-                        '<button class="btn-small" onclick="flashBtn(this);generateParagraph(' + i + ')" title="Generate audio for this paragraph">🎵</button>' +
-                        '<button class="btn-small btn-secondary" onclick="flashBtn(this);splitParagraph(' + i + ')" title="Split paragraph at sentence boundary">✂</button>' +
-                        '<button class="btn-small btn-danger" onclick="removeParagraph(' + i + ')" title="Remove this paragraph">✕</button></div>' +
+                        '<select class="btn-small" style="width:80px" onchange="updateSpeaker(' + i + ',this.value)" title="เลือกเสียงผู้พูด">' +
+                        [1,2,3,4].map(s => '<option value="' + s + '"' + (p.speaker_id===s?' selected':'') + '>ผู้พูด ' + s + '</option>').join('') + '</select>' +
+                        '<button class="btn-small" onclick="flashBtn(this);generateParagraph(' + i + ')" title="สร้างเสียงย่อหน้านี้">🎵</button>' +
+                        '<button class="btn-small btn-secondary" onclick="flashBtn(this);splitParagraph(' + i + ')" title="แบ่งย่อหน้าตรงรอยต่อประโยค">✂</button>' +
+                        '<button class="btn-small btn-danger" onclick="removeParagraph(' + i + ')" title="ลบย่อหน้านี้">✕</button></div>' +
                         '<div class="pause-controls">' +
-                        (i === 0 ? '<div class="pause-control">Before: <input type="number" value="' + p.pauseBefore + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'before\',this.value)" title="Silence before this paragraph">s</div>' : '') +
-                        (i < paragraphs.length - 1 ? '<div class="pause-control">After: <input type="number" value="' + p.pauseAfter + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'after\',this.value)" title="Silence after this paragraph">s</div>' : '') +
-                        '<div class="pause-control" style="flex:1;margin-left:8px">Seed: <input type="range" class="para-seed-input" value="' + (p.seed ?? 42) + '" min="42" max="99999" step="1" oninput="updateParagraphSeed(' + i + ',this.value);this.nextElementSibling.textContent=this.value" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()" style="width:80px;vertical-align:middle;margin:0 4px"> <span style="color:#f59e0b;font-size:11px;font-weight:600;min-width:32px;display:inline-block">' + (p.seed ?? 42) + '</span></div>' +
+                        (i === 0 ? '<div class="pause-control">เว้นก่อน: <input type="number" value="' + p.pauseBefore + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'before\',this.value)" title="ช่วงเงียบก่อนย่อหน้านี้">s</div>' : '') +
+                        (i < paragraphs.length - 1 ? '<div class="pause-control">เว้นหลัง: <input type="number" value="' + p.pauseAfter + '" step="0.1" min="0" onchange="updatePause(' + i + ',\'after\',this.value)" title="ช่วงเงียบหลังย่อหน้านี้">s</div>' : '') +
+                        '<div class="pause-control" style="flex:1;margin-left:8px">ค่าสุ่ม: <input type="range" class="para-seed-input" value="' + (p.seed ?? 42) + '" min="42" max="99999" step="1" oninput="updateParagraphSeed(' + i + ',this.value);this.nextElementSibling.textContent=this.value" onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()" style="width:80px;vertical-align:middle;margin:0 4px"> <span style="color:#f59e0b;font-size:11px;font-weight:600;min-width:32px;display:inline-block">' + (p.seed ?? 42) + '</span></div>' +
                         '</div>';
                 }
                 
@@ -1598,8 +1685,8 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             
             const finalInsert = document.createElement('div');
             finalInsert.className = 'insert-row always-visible';
-            finalInsert.innerHTML = '<button class="insert-btn" onclick="insertParagraph(' + paragraphs.length + ');flashBtn(this)" title="Add new text paragraph at end">+ Text</button>' +
-                '<button class="insert-btn" onclick="insertMedia(' + paragraphs.length + ');flashBtn(this)" title="Add audio file at end">+ Media</button>';
+            finalInsert.innerHTML = '<button class="insert-btn" onclick="insertParagraph(' + paragraphs.length + ');flashBtn(this)" title="เพิ่มย่อหน้าข้อความท้ายสุด">+ ข้อความ</button>' +
+                '<button class="insert-btn" onclick="insertMedia(' + paragraphs.length + ');flashBtn(this)" title="เพิ่มไฟล์เสียงท้ายสุด">+ ไฟล์เสียง</button>';
             container.appendChild(finalInsert);
             updatePendingBtn();
         }
@@ -1616,7 +1703,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     const statusEl = section.querySelector('.paragraph-status');
                     if (statusEl) {
                         statusEl.className = 'paragraph-status edited';
-                        statusEl.textContent = 'edited';
+                        statusEl.textContent = STATUS_TH.edited;
                     }
                     element.classList.add('edited');
                 }
@@ -1884,10 +1971,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         function splitParagraph(index) {
             if (isGenerating) return;
             const p = paragraphs[index];
-            const sentences = p.text.match(/[^.!?]+[.!?]+/g);
+            const sentences = splitSentences(p.text);
             
             if (!sentences || sentences.length < 2) {
-                alert('Cannot split - need multiple sentences');
+                alert('แบ่งไม่ได้ — ต้องมีอย่างน้อย 2 ประโยค');
                 return;
             }
             
@@ -1981,11 +2068,11 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const hasAudio = paragraphs.some(p => p.audio);
             showConfirmModal({
                 icon: '🗑️',
-                title: 'Clear All Paragraphs?',
+                title: 'ล้างย่อหน้าทั้งหมด?',
                 msg: hasAudio
-                    ? 'This will delete all paragraphs and generated audio. This cannot be undone.'
-                    : 'This will delete all paragraphs.',
-                okLabel: 'Yes, Clear All',
+                    ? 'ย่อหน้าและเสียงที่สร้างไว้ทั้งหมดจะถูกลบ ไม่สามารถย้อนกลับได้'
+                    : 'ย่อหน้าทั้งหมดจะถูกลบ',
+                okLabel: 'ใช่ ล้างทั้งหมด',
                 okClass: 'btn-danger',
                 onOk: () => {
                     paragraphs = [];
@@ -2001,9 +2088,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         function resetApp() {
             showConfirmModal({
                 icon: '🔄',
-                title: 'Reset Everything?',
-                msg: 'This will permanently clear all paragraphs, audio and the timeline. This cannot be undone.',
-                okLabel: 'Yes, Reset Everything',
+                title: 'รีเซ็ตทั้งหมด?',
+                msg: 'ย่อหน้า เสียง และไทม์ไลน์ทั้งหมดจะถูกล้าง ไม่สามารถย้อนกลับได้',
+                okLabel: 'ใช่ รีเซ็ตทั้งหมด',
                 okClass: 'btn-danger',
                 onOk: doResetApp,
             });
@@ -2037,10 +2124,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             $('metricsDisplay').innerHTML = '';
             $('genStatus').className = 'status';
             $('genStatus').textContent = '';
-            $('generateAllBtn').innerHTML  = '🎵 Generate All';
-            $('generateAllBtn').title      = 'Generate audio for all paragraphs';
-            $('generateAllBtn2').innerHTML = '🎵 Generate All';
-            $('generateAllBtn2').title     = 'Generate audio for all paragraphs';
+            $('generateAllBtn').innerHTML  = '🎵 สร้างเสียงทั้งหมด';
+            $('generateAllBtn').title      = 'สร้างเสียงทุกย่อหน้า';
+            $('generateAllBtn2').innerHTML = '🎵 สร้างเสียงทั้งหมด';
+            $('generateAllBtn2').title     = 'สร้างเสียงทุกย่อหน้า';
             updatePendingBtn();
             updateParseBtnState();
         }
@@ -2052,7 +2139,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             // Check if at least one voice has been created
             const anyVoiceReady = Object.values(voiceReady).some(v => v) || Object.values(vdApplied).some(v => v);
             if (!anyVoiceReady) {
-                showStatus($('genStatus'), 'error', '✗ Please create at least one voice first using the "Create Voice" button');
+                showStatus($('genStatus'), 'error', '✗ กรุณาสร้างเสียงอย่างน้อย 1 เสียงก่อน โดยกดปุ่ม "สร้างเสียง"');
                 return;
             }
 
@@ -2074,6 +2161,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                         diffusion_steps: parseInt($('diffusionSteps').value),
                         guidance_scale: parseFloat($('guidanceScale')?.value || '2.0'),
                         speed: parseFloat($('speedControl').value),
+                        ...genOptions(),
                         seed: p.seed ?? parseInt($('seed').value),
                         instruct: vdApplied[p.speaker_id] || '',
                         // If speaker has a voice design ref audio cached, use it for consistency
@@ -2152,7 +2240,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         async function generateAll() {
             const anyVoiceReady = Object.values(voiceReady).some(v => v) || Object.values(vdApplied).some(v => v);
             if (!anyVoiceReady) {
-                showStatus($('genStatus'), 'error', '✗ Please create at least one voice first using the "Create Voice" button');
+                showStatus($('genStatus'), 'error', '✗ กรุณาสร้างเสียงอย่างน้อย 1 เสียงก่อน โดยกดปุ่ม "สร้างเสียง"');
                 return;
             }
 
@@ -2160,9 +2248,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             if (hasGeneratedAll) {
                 showConfirmModal({
                     icon: '🔄',
-                    title: 'Regenerate All?',
-                    msg: 'This will replace all existing audio using the current settings (default pause: ' + parseFloat($('defaultPause').value) + 's). Media clips will be hidden during regeneration and restored afterwards.',
-                    okLabel: 'Yes, Regenerate All',
+                    title: 'สร้างเสียงใหม่ทั้งหมด?',
+                    msg: 'เสียงเดิมทั้งหมดจะถูกแทนที่ด้วยการตั้งค่าปัจจุบัน (ช่วงเว้นเริ่มต้น: ' + parseFloat($('defaultPause').value) + ' วินาที) ไฟล์เสียงประกอบจะถูกซ่อนระหว่างสร้างและกลับมาหลังเสร็จ',
+                    okLabel: 'ใช่ สร้างใหม่ทั้งหมด',
                     okClass: '',
                     onOk: doGenerateAll,
                 });
@@ -2318,7 +2406,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
 
                 const textParagraphs = paragraphs.filter(p => p.type === 'text');
                 if (textParagraphs.length === 0) {
-                    showStatus($('genStatus'), 'info', 'No text paragraphs to generate');
+                    showStatus($('genStatus'), 'info', 'ไม่มีย่อหน้าข้อความให้สร้างเสียง');
                     return;
                 }
 
@@ -2369,13 +2457,13 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
 
             $('progressLabel').classList.remove('show'); $('progressBar').classList.remove('show');
             updateMetrics();
-            showStatus($('genStatus'), 'success', '✓ Generated ' + paragraphs.filter(p => p.type === 'text').length + ' paragraphs');
+            showStatus($('genStatus'), 'success', '✓ สร้างเสียงเสร็จ ' + paragraphs.filter(p => p.type === 'text').length + ' ย่อหน้า');
 
             hasGeneratedAll = true;
-            $('generateAllBtn').innerHTML  = '🔄 Regenerate All';
-            $('generateAllBtn').title      = 'Regenerate audio for all paragraphs';
-            $('generateAllBtn2').innerHTML = '🔄 Regenerate All';
-            $('generateAllBtn2').title     = 'Regenerate audio for all paragraphs';
+            $('generateAllBtn').innerHTML  = '🔄 สร้างเสียงใหม่ทั้งหมด';
+            $('generateAllBtn').title      = 'สร้างเสียงใหม่ทุกย่อหน้า';
+            $('generateAllBtn2').innerHTML = '🔄 สร้างเสียงใหม่ทั้งหมด';
+            $('generateAllBtn2').title     = 'สร้างเสียงใหม่ทุกย่อหน้า';
 
             _rippleOnNextCombine = true;
             await combineAudio();
@@ -2388,10 +2476,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const rtf = totalGenTime > 0 && audioDuration > 0 ? totalGenTime / audioDuration : 0;
             
             $('metricsDisplay').innerHTML = 
-                '<div class="metric"><div class="metric-value">' + doneParagraphs.length + '</div><div class="metric-label">Segments</div></div>' +
-                '<div class="metric"><div class="metric-value">' + audioDuration.toFixed(1) + 's</div><div class="metric-label">Duration</div></div>' +
-                '<div class="metric"><div class="metric-value">' + totalGenTime.toFixed(1) + 's</div><div class="metric-label">Gen Time</div></div>' +
-                '<div class="metric"><div class="metric-value">' + rtf.toFixed(2) + 'x</div><div class="metric-label">RTF</div></div>';
+                '<div class="metric"><div class="metric-value">' + doneParagraphs.length + '</div><div class="metric-label">จำนวนช่วง</div></div>' +
+                '<div class="metric"><div class="metric-value">' + audioDuration.toFixed(1) + 's</div><div class="metric-label">ความยาว</div></div>' +
+                '<div class="metric"><div class="metric-value">' + totalGenTime.toFixed(1) + 's</div><div class="metric-label">เวลาที่ใช้สร้าง</div></div>' +
+                '<div class="metric"><div class="metric-value">' + rtf.toFixed(2) + 'x</div><div class="metric-label">อัตราเร็ว (RTF)</div></div>';
         }
         
         function createWavUrl(audioData) {
@@ -2441,7 +2529,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         async function combineAudio(preservePlayhead = true) {
             const validParagraphs = paragraphs.filter(p => p.audio);
             if (validParagraphs.length === 0) {
-                showStatus($('genStatus'), 'error', 'No audio to combine');
+                showStatus($('genStatus'), 'error', 'ยังไม่มีเสียงให้รวม');
                 return;
             }
 
@@ -2583,7 +2671,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             });
 
             if (clips.length === 0) {
-                showStatus($('genStatus'), 'error', 'No audio to combine');
+                showStatus($('genStatus'), 'error', 'ยังไม่มีเสียงให้รวม');
                 return;
             }
 
@@ -2656,9 +2744,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     && b.offsetSec < a.offsetSec + a.audio.length / SAMPLE_RATE));
 
             showStatus($('genStatus'), 'success',
-                '✓ Combined ' + totalSec.toFixed(1) + 's' +
-                (hasOverlaps ? ' · overlaps mixed' : '') +
-                (peak > 1 ? ' · normalised' : ''));
+                '✓ รวมเสียงแล้ว ' + totalSec.toFixed(1) + ' วินาที' +
+                (hasOverlaps ? ' · ผสมช่วงที่ซ้อนกัน' : '') +
+                (peak > 1 ? ' · ปรับระดับเสียงแล้ว' : ''));
 
             $('playbackStrip').classList.add('show');
             $('playbackLabel').classList.add('show');
@@ -2716,7 +2804,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             if (label && !label.querySelector('.playing-badge')) {
                 const badge = document.createElement('span');
                 badge.className = 'playing-badge';
-                badge.innerHTML = '▶ playing';
+                badge.innerHTML = '▶ กำลังเล่น';
                 label.appendChild(badge);
             }
 
@@ -2725,8 +2813,8 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             const badge = $('nowPlayingBadge');
             if (p) {
                 const typeLabel = p.type === 'media'
-                    ? ('🎵 Media ' + (index + 1))
-                    : ('¶' + (index + 1) + ' · Spk ' + p.speaker_id);
+                    ? ('🎵 ไฟล์เสียง ' + (index + 1))
+                    : ('¶' + (index + 1) + ' · ผู้พูด ' + p.speaker_id);
                 badge.textContent = '▶ ' + typeLabel;
                 badge.style.display = 'inline';
             }
@@ -2855,7 +2943,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 const list = $('episodesList');
                 
                 if (data.episodes.length === 0) {
-                    list.innerHTML = '<p style="color:#666;text-align:center;padding:20px">No saved episodes</p>';
+                    list.innerHTML = '<p style="color:#666;text-align:center;padding:20px">ยังไม่มีโปรเจกต์ที่บันทึกไว้</p>';
                     return;
                 }
                 
@@ -2863,10 +2951,10 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     '<div class="episode-item">' +
                     '<div class="episode-info">' +
                     '<div class="episode-name">' + escapeHtml(ep.name) + '</div>' +
-                    '<div class="episode-meta">' + ep.paragraph_count + ' paragraphs • ' + new Date(ep.created).toLocaleDateString() + '</div>' +
+                    '<div class="episode-meta">' + ep.paragraph_count + ' ย่อหน้า • ' + new Date(ep.created).toLocaleDateString() + '</div>' +
                     '</div>' +
                     '<div class="episode-actions">' +
-                    '<button class="btn-small" onclick="loadEpisode(\'' + ep.id + '\');flashBtn(this)">Load</button>' +
+                    '<button class="btn-small" onclick="loadEpisode(\'' + ep.id + '\');flashBtn(this)">เปิด</button>' +
                     '<button class="btn-small btn-danger" onclick="deleteEpisode(\'' + ep.id + '\')">✕</button>' +
                     '</div></div>'
                 ).join('');
@@ -2877,7 +2965,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         
         async function loadEpisode(id) {
             try {
-                showStatus($('genStatus'), 'info', 'Loading episode...');
+                showStatus($('genStatus'), 'info', 'กำลังเปิดโปรเจกต์...');
                 const res = await fetch('/episodes/' + id);
                 const data = await res.json();
                 
@@ -2956,16 +3044,16 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     // Restore hasGeneratedAll button label
                     if (settings.has_generated_all) {
                         hasGeneratedAll = true;
-                        $('generateAllBtn').innerHTML  = '🔄 Regenerate All';
-                        $('generateAllBtn').title      = 'Regenerate audio for all paragraphs';
-                        $('generateAllBtn2').innerHTML = '🔄 Regenerate All';
-                        $('generateAllBtn2').title     = 'Regenerate audio for all paragraphs';
+                        $('generateAllBtn').innerHTML  = '🔄 สร้างเสียงใหม่ทั้งหมด';
+                        $('generateAllBtn').title      = 'สร้างเสียงใหม่ทุกย่อหน้า';
+                        $('generateAllBtn2').innerHTML = '🔄 สร้างเสียงใหม่ทั้งหมด';
+                        $('generateAllBtn2').title     = 'สร้างเสียงใหม่ทุกย่อหน้า';
                     } else {
                         hasGeneratedAll = false;
-                        $('generateAllBtn').innerHTML  = '🎵 Generate All';
-                        $('generateAllBtn').title      = 'Generate audio for all paragraphs';
-                        $('generateAllBtn2').innerHTML = '🎵 Generate All';
-                        $('generateAllBtn2').title     = 'Generate audio for all paragraphs';
+                        $('generateAllBtn').innerHTML  = '🎵 สร้างเสียงทั้งหมด';
+                        $('generateAllBtn').title      = 'สร้างเสียงทุกย่อหน้า';
+                        $('generateAllBtn2').innerHTML = '🎵 สร้างเสียงทั้งหมด';
+                        $('generateAllBtn2').title     = 'สร้างเสียงทุกย่อหน้า';
                     }
                     
                     // Restore input text
@@ -2982,7 +3070,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                             }
                         }
                         if (voiceNote) {
-                            showStatus($('voiceStatus'), 'info', 'Voice files used:\n' + voiceNote + '\nPlease re-upload to regenerate.');
+                            showStatus($('voiceStatus'), 'info', 'ไฟล์เสียงที่ใช้:\n' + voiceNote + '\nกรุณาอัปโหลดใหม่หากต้องการสร้างเสียงใหม่');
                         }
                     }
                     
@@ -2995,6 +3083,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     if (settings.denoise !== undefined && $('denoiseCheck')) $('denoiseCheck').checked = settings.denoise;
                     if (settings.preprocess_prompt !== undefined && $('preprocessCheck')) $('preprocessCheck').checked = settings.preprocess_prompt;
                     if (settings.postprocess_output !== undefined && $('postprocessCheck')) $('postprocessCheck').checked = settings.postprocess_output;
+                    if (settings.language && $('langSelect')) $('langSelect').value = settings.language;
                     // Restore voice designer state
                     if (settings.vd_applied) {
                         Object.assign(vdApplied, settings.vd_applied);
@@ -3011,27 +3100,27 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     $('paragraphsCard').style.display = 'block';
                     $('outputCard').style.display = 'block';
                     hideModal('episodesModal');
-                    showStatus($('genStatus'), 'success', '✓ Loaded "' + data.meta.name + '"');
+                    showStatus($('genStatus'), 'success', '✓ เปิด "' + data.meta.name + '"');
                     
                     // Auto-combine if there's audio
                     if (paragraphs.some(p => p.audio)) {
                         await combineAudio();
                     }
                 } else {
-                    showStatus($('genStatus'), 'error', '✗ Load failed: ' + (data.error || 'Unknown error'));
+                    showStatus($('genStatus'), 'error', '✗ เปิดไม่สำเร็จ: ' + (data.error || 'ข้อผิดพลาดที่ไม่ทราบสาเหตุ'));
                 }
             } catch (e) {
                 console.error('Failed to load episode:', e);
-                showStatus($('genStatus'), 'error', '✗ Load failed: ' + e.message);
+                showStatus($('genStatus'), 'error', '✗ เปิดไม่สำเร็จ: ' + e.message);
             }
         }
         
         async function deleteEpisode(id) {
             showConfirmModal({
                 icon: '🗑️',
-                title: 'Delete Episode?',
-                msg: 'This episode will be permanently deleted.',
-                okLabel: 'Delete',
+                title: 'ลบโปรเจกต์?',
+                msg: 'โปรเจกต์นี้จะถูกลบถาวร',
+                okLabel: 'ลบ',
                 okClass: 'btn-danger',
                 onOk: async () => {
                     try {
@@ -3102,10 +3191,11 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 denoise:                $('denoiseCheck')?.checked !== false,
                 preprocess_prompt:      $('preprocessCheck')?.checked !== false,
                 postprocess_output:     $('postprocessCheck')?.checked !== false,
+                language:               $('langSelect')?.value || 'th',
             };
             
             try {
-                showStatus($('genStatus'), 'info', 'Saving episode...');
+                showStatus($('genStatus'), 'info', 'กำลังบันทึกโปรเจกต์...');
                 const res = await fetch('/episodes', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -3119,14 +3209,14 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 
                 if (data.success) {
                     hideModal('episodesModal');
-                    const verb = data.overwritten ? 'Overwritten' : 'Saved';
+                    const verb = data.overwritten ? 'บันทึกทับ' : 'บันทึก';
                     showStatus($('genStatus'), 'success', '✓ ' + verb + ' "' + name + '"');
                 } else {
-                    showStatus($('genStatus'), 'error', '✗ Save failed: ' + (data.error || 'Unknown error'));
+                    showStatus($('genStatus'), 'error', '✗ บันทึกไม่สำเร็จ: ' + (data.error || 'ข้อผิดพลาดที่ไม่ทราบสาเหตุ'));
                 }
             } catch (e) {
                 console.error('Failed to save:', e);
-                showStatus($('genStatus'), 'error', '✗ Save failed: ' + e.message);
+                showStatus($('genStatus'), 'error', '✗ บันทึกไม่สำเร็จ: ' + e.message);
             }
         }
         
@@ -3163,9 +3253,9 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         function renderPronunciationEntries() {
             $('pronunciationEntries').innerHTML = pronunciationEntries.map((e, i) => 
                 '<div class="pronunciation-entry">' +
-                '<input type="text" placeholder="Original" value="' + escapeHtml(e.original || '') + '" onchange="pronunciationEntries[' + i + '].original=this.value">' +
+                '<input type="text" placeholder="คำเดิม" value="' + escapeHtml(e.original || '') + '" onchange="pronunciationEntries[' + i + '].original=this.value">' +
                 '<span class="arrow">→</span>' +
-                '<input type="text" placeholder="Replacement" value="' + escapeHtml(e.replace || '') + '" onchange="pronunciationEntries[' + i + '].replace=this.value">' +
+                '<input type="text" placeholder="อ่านว่า" value="' + escapeHtml(e.replace || '') + '" onchange="pronunciationEntries[' + i + '].replace=this.value">' +
                 '<button class="btn-small btn-danger" onclick="pronunciationEntries.splice(' + i + ',1);renderPronunciationEntries()">✕</button>' +
                 '</div>'
             ).join('');
@@ -3186,7 +3276,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                     body: JSON.stringify({pronunciations: valid})
                 });
                 hideModal('pronunciationModal');
-                showStatus($('genStatus'), 'success', '✓ Saved ' + valid.length + ' pronunciation(s)');
+                showStatus($('genStatus'), 'success', '✓ บันทึกแล้ว ' + valid.length + ' คำ');
             } catch (e) {
                 console.error('Failed to save:', e);
             }
@@ -3202,7 +3292,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 const data = await res.json();
                 
                 if (data.loaded) {
-                    showStatus($('modelStatus'), 'success', '✓ Model: ' + data.model_name);
+                    showStatus($('modelStatus'), 'success', '✓ โมเดล: ' + data.model_name);
                     setActiveOn($('loadModelBtn'));
                     $('loadModelBtn').classList.remove('btn-pulse-blue');
                 }
@@ -3439,7 +3529,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             tlRedoStack.push(tlSnapshotState());
             tlRestoreState(tlUndoStack.pop());
             tlUpdateUndoButtons();
-            if (TL.canvas) TL._info('Undo ✓');
+            if (TL.canvas) TL._info('เลิกทำ ✓');
         }
 
         function tlRedo() {
@@ -3447,7 +3537,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             tlUndoStack.push(tlSnapshotState());
             tlRestoreState(tlRedoStack.pop());
             tlUpdateUndoButtons();
-            if (TL.canvas) TL._info('Redo ✓');
+            if (TL.canvas) TL._info('ทำซ้ำ ✓');
         }
 
         function tlUpdateUndoButtons() {
@@ -3478,7 +3568,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
         async function regeneratePending() {
             const anyVoiceReady = Object.values(voiceReady).some(v => v) || Object.values(vdApplied).some(v => v);
             if (!anyVoiceReady) {
-                showStatus($('genStatus'), 'error', '✗ Please create at least one voice first');
+                showStatus($('genStatus'), 'error', '✗ กรุณาสร้างเสียงอย่างน้อย 1 เสียงก่อน');
                 return;
             }
             lockUI();
@@ -3908,7 +3998,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 $('toolCut').classList.toggle('active', tool === 'cut');
                 if (this.canvas) this.canvas.style.cursor = tool === 'cut' ? 'crosshair' : 'pointer';
                 if (this.canvas) this.render();
-                this._info(tool === 'cut' ? 'Cut tool — click to split' : 'Select tool');
+                this._info(tool === 'cut' ? 'เครื่องมือตัด — คลิกเพื่อแบ่ง' : 'เครื่องมือเลือก');
             },
 
             updateTrackLabels() {
@@ -3917,14 +4007,14 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 if (btn) {
                     btn.classList.toggle('ripple-on', !!this.rippleAll);
                     btn.title = this.rippleAll
-                        ? 'Ripple All ON — moving a clip pushes all following clips. Click to turn off.'
-                        : 'Ripple All OFF — clips move independently. Click to turn on.';
+                        ? 'เลื่อนตามกัน: เปิด — การย้ายคลิปจะดันคลิปถัดไปตามไปด้วย คลิกเพื่อปิด'
+                        : 'เลื่อนตามกัน: ปิด — คลิปเคลื่อนที่อิสระ คลิกเพื่อเปิด';
                 }
                 const el = $('timelineLabels');
                 if (!el) return;
                 el.innerHTML = '';
                 // Fixed 2 tracks: Voice (0) and Media (1)
-                const labels = ['Voice', 'Media'];
+                const labels = ['เสียงพูด', 'ประกอบ'];
                 for (let t = 0; t < 2; t++) {
                     const div = document.createElement('div');
                     div.className = 'tl-track-label';
@@ -4472,7 +4562,7 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                         _rippleOnNextCombine = true;
                         combineAudio();
                         this.setTool('select');
-                        this._info('Cut ✓');
+                        this._info('ตัดแล้ว ✓');
                     }
                     return;
                 }
@@ -4673,12 +4763,12 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
                 this.canvas.style.cursor = 'pointer';
 
                 if (ds.mode === 'trim') {
-                    this._info('Trimmed ✓');
+                    this._info('ตัดแต่งแล้ว ✓');
                     tlPushUndo();
                     if (TL.rippleAll) _rippleOnNextCombine = true;
                     combineAudio();
                 } else if (ds.mode === 'move' && ds.moved) {
-                    this._info('Moved ✓');
+                    this._info('ย้ายแล้ว ✓');
                     tlPushUndo();
 
                     if (ds.snapshots) {
@@ -4883,8 +4973,8 @@ Use [pause] for a pause (default duration), or [pause 1.5s] for a custom duratio
             <div id="confirmModalTitle" style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;text-align:center"></div>
             <div id="confirmModalMsg" style="font-size:13px;color:#aaa;margin-bottom:22px;text-align:center;line-height:1.5"></div>
             <div style="display:flex;gap:10px;justify-content:center">
-                <button id="confirmModalCancel" class="btn-secondary" style="min-width:90px">Cancel</button>
-                <button id="confirmModalOk" style="min-width:120px">Confirm</button>
+                <button id="confirmModalCancel" class="btn-secondary" style="min-width:90px">ยกเลิก</button>
+                <button id="confirmModalOk" style="min-width:120px">ยืนยัน</button>
             </div>
         </div>
     </div>

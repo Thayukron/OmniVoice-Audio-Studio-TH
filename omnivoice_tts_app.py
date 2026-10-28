@@ -26,9 +26,14 @@ import uuid
 from datetime import datetime
 from flask import Flask, request, jsonify, render_template, Response, stream_with_context
 
+# Keep every HuggingFace download inside the project folder (set before torch/HF imports)
+os.environ.setdefault('HF_HOME', os.path.abspath('models/omnivoice'))
+
 import torch
 import numpy as np
 import soundfile as sf
+
+from thai_text import normalize_thai, is_thai
 
 # Optional Whisper
 try:
@@ -40,6 +45,8 @@ except ImportError:
 # Parse arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('--port', type=int, default=5000)
+parser.add_argument('--host', type=str, default='127.0.0.1',
+                    help='Bind address (use 0.0.0.0 to allow LAN access)')
 parser.add_argument('--device', type=str, default='auto',
                     help='Device: auto, cuda, mps, cpu')
 parser.add_argument('--dtype', type=str, default='float16',
@@ -88,6 +95,34 @@ if os.path.exists(PRONUNCIATIONS_FILE):
         pronunciations = json.load(f)
 
 
+_EPISODE_ID_RE = re.compile(r'^[a-zA-Z0-9_-]+$')
+
+
+def _episode_path(episode_id):
+    """Return the episode directory, or None if the id is unsafe (e.g. '..')."""
+    if not _EPISODE_ID_RE.match(episode_id or ''):
+        return None
+    return os.path.join(EPISODES_DIR, episode_id)
+
+
+def resolve_language(lang, text=''):
+    """'th' / 'en' pass through; 'auto' picks Thai when the text has Thai script."""
+    lang = (lang or 'auto').strip().lower()
+    if lang == 'auto':
+        return 'th' if is_thai(text) else None
+    return lang
+
+
+def transcribe_ref(path, language):
+    """Whisper transcript of a reference clip, normalised like the target text."""
+    result = whisper_model.transcribe(
+        path, fp16=torch.cuda.is_available(), task="transcribe",
+        language=language,
+    )
+    text = result['text'].strip()
+    return normalize_thai(text) if language == 'th' else text
+
+
 def apply_pronunciations(text):
     for entry in pronunciations:
         if entry.get('original'):
@@ -97,11 +132,15 @@ def apply_pronunciations(text):
 
 # Whisper - used for /transcribe endpoint AND auto ref_text for voice cloning
 if os.environ.get('DISABLE_WHISPER', '0') != '1' and whisper is not None:
-    print("Loading Whisper...")
+    # "base" mis-hears Thai badly, and a wrong ref_text ruins the clone. "turbo"
+    # (large-v3-turbo) is far more accurate; override with WHISPER_MODEL=small etc.
+    WHISPER_MODEL = os.environ.get('WHISPER_MODEL', 'turbo')
+    print(f"Loading Whisper ({WHISPER_MODEL})...")
     try:
         whisper_model = whisper.load_model(
-            "base",
-            device="cuda:0" if torch.cuda.is_available() else "cpu"
+            WHISPER_MODEL,
+            device="cuda:0" if torch.cuda.is_available() else "cpu",
+            download_root="models/whisper",
         )
         print("✓ Whisper loaded")
     except Exception as e:
@@ -259,7 +298,13 @@ def create_voice():
         audio_file.save(save_path)
 
         # Normalise to 24 kHz mono float32 wav
-        audio_data, sr = sf.read(save_path)
+        try:
+            audio_data, sr = sf.read(save_path)
+        except Exception:
+            # mp3 / m4a etc. that libsndfile can't open — decode through librosa/ffmpeg
+            import librosa
+            audio_data, sr = librosa.load(save_path, sr=None, mono=False)
+            audio_data = audio_data.T
         if len(audio_data.shape) > 1:
             audio_data = audio_data.mean(axis=1)
         if sr != 24000:
@@ -269,22 +314,27 @@ def create_voice():
         if audio_max > 0:
             audio_data = audio_data / max(audio_max, 1.0)
 
-        # Trim to max 10 seconds — longer audio doesn't improve clone quality
-        MAX_REF_SAMPLES = 10 * 24000
+        # Trim to max 15 s. Cut at the quietest point after 8 s so the clip doesn't end
+        # mid-syllable (a half word that Whisper can't transcribe hurts clone quality).
+        MAX_REF_SAMPLES = 15 * 24000
         if len(audio_data) > MAX_REF_SAMPLES:
-            audio_data = audio_data[:MAX_REF_SAMPLES]
-            print(f"  Speaker {speaker_id} ref audio trimmed to 10s")
+            frame = 480  # 20 ms
+            window = audio_data[8 * 24000:MAX_REF_SAMPLES]
+            energy = np.convolve(window ** 2, np.ones(frame) / frame, mode='valid')
+            cut = 8 * 24000 + int(np.argmin(energy)) + frame // 2
+            audio_data = audio_data[:cut]
+            print(f"  Speaker {speaker_id} ref audio trimmed to {cut / 24000:.1f}s")
 
         sf.write(save_path, audio_data.astype(np.float32), 24000)
 
         duration = len(audio_data) / 24000
 
         # Auto-transcribe with Whisper to get ref_text (improves cloning quality)
+        language = resolve_language(request.form.get('language', 'th'))
         ref_text = None
         if whisper_model is not None:
             try:
-                result = whisper_model.transcribe(save_path, fp16=torch.cuda.is_available(), task="transcribe")
-                ref_text = result['text'].strip()
+                ref_text = transcribe_ref(save_path, language)
                 print(f"  Speaker {speaker_id} ref_text: {ref_text[:80]}")
             except Exception as e:
                 print(f"  Whisper transcription failed: {e}")
@@ -317,7 +367,7 @@ def update_ref_text():
         return jsonify({'error': 'Invalid speaker ID'}), 400
     if voice_samples.get(speaker_id) is None:
         return jsonify({'error': 'No voice loaded for this speaker'}), 400
-    voice_samples[speaker_id]['ref_text'] = ref_text or None
+    voice_samples[speaker_id]['ref_text'] = normalize_thai(ref_text) or None
     return jsonify({'success': True})
 
 
@@ -361,9 +411,9 @@ def transcribe():
     audio_file.save(temp_path)
 
     try:
-        result = whisper_model.transcribe(temp_path, fp16=torch.cuda.is_available(), task="transcribe")
+        transcript = transcribe_ref(temp_path, resolve_language(request.form.get('language', 'th')))
         os.remove(temp_path)
-        return jsonify({'success': True, 'transcript': result['text'].strip()})
+        return jsonify({'success': True, 'transcript': transcript})
     except Exception as e:
         if os.path.exists(temp_path):
             os.remove(temp_path)
@@ -400,12 +450,18 @@ def generate_paragraph():
         t_shift            = float(data.get('t_shift', 0.1))
         instruct           = data.get('instruct', '').strip() or None
         vd_ref_audio_id    = data.get('vd_ref_audio_id')
+        denoise            = bool(data.get('denoise', True))
+        preprocess_prompt  = bool(data.get('preprocess_prompt', True))
+        postprocess_output = bool(data.get('postprocess_output', True))
 
         if not text:
             generation_busy = False
             return jsonify({'error': 'No text'}), 400
 
         text = apply_pronunciations(text)
+        language = resolve_language(data.get('language', 'th'), text)
+        if language == 'th':
+            text = normalize_thai(text)
 
         # Voice design consistency: if a ref audio has been cached for this design speaker,
         # use it as ref_audio so all paragraphs sound like the same voice.
@@ -441,10 +497,14 @@ def generate_paragraph():
             if part:
                 gen_kwargs = dict(
                     text=part,
+                    language=language,
                     num_step=num_step,
                     speed=speed,
                     guidance_scale=guidance_scale,
                     t_shift=t_shift,
+                    denoise=denoise,
+                    preprocess_prompt=preprocess_prompt,
+                    postprocess_output=postprocess_output,
                 )
 
                 if voice_info is not None:
@@ -589,8 +649,8 @@ def list_episodes():
 
 @app.route('/episodes/<episode_id>', methods=['GET'])
 def load_episode(episode_id):
-    episode_path = os.path.join(EPISODES_DIR, episode_id)
-    if not os.path.exists(episode_path):
+    episode_path = _episode_path(episode_id)
+    if episode_path is None or not os.path.exists(episode_path):
         return jsonify({'error': 'Not found'}), 404
 
     meta_path = os.path.join(episode_path, 'meta.json')
@@ -702,8 +762,8 @@ def save_episode():
 
 @app.route('/episodes/<episode_id>', methods=['DELETE'])
 def delete_episode(episode_id):
-    episode_path = os.path.join(EPISODES_DIR, episode_id)
-    if os.path.exists(episode_path):
+    episode_path = _episode_path(episode_id)
+    if episode_path is not None and os.path.exists(episode_path):
         shutil.rmtree(episode_path)
         return jsonify({'success': True})
     return jsonify({'error': 'Not found'}), 404
@@ -756,4 +816,4 @@ def combine_audio():
 from flask import send_from_directory
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=args.port, debug=False, threaded=True)
+    app.run(host=args.host, port=args.port, debug=False, threaded=True)
